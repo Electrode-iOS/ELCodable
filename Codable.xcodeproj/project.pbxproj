@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA64FEFC1BDFEF7500E6F2AC /* Codable.h in Headers */ = {isa = PBXBuildFile; fileRef = CA64FEFB1BDFEF7500E6F2AC /* Codable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA64FF031BDFEF7500E6F2AC /* Codable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA64FEF81BDFEF7500E6F2AC /* Codable.framework */; };
+		CA64FF081BDFEF7500E6F2AC /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA64FF041BDFEF7500E6F2AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA64FEEF1BDFEF7500E6F2AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA64FEF71BDFEF7500E6F2AC;
+			remoteInfo = Codable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA64FEF81BDFEF7500E6F2AC /* Codable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Codable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA64FEFB1BDFEF7500E6F2AC /* Codable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codable.h; sourceTree = "<group>"; };
+		CA64FEFD1BDFEF7500E6F2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
+		CA64FF091BDFEF7500E6F2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA64FEF41BDFEF7500E6F2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA64FEFF1BDFEF7500E6F2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA64FF031BDFEF7500E6F2AC /* Codable.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA64FEEE1BDFEF7500E6F2AC = {
+			isa = PBXGroup;
+			children = (
+				CA64FEFA1BDFEF7500E6F2AC /* Codable */,
+				CA64FF061BDFEF7500E6F2AC /* CodableTests */,
+				CA64FEF91BDFEF7500E6F2AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA64FEF91BDFEF7500E6F2AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FEF81BDFEF7500E6F2AC /* Codable.framework */,
+				CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA64FEFA1BDFEF7500E6F2AC /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FEFB1BDFEF7500E6F2AC /* Codable.h */,
+				CA64FEFD1BDFEF7500E6F2AC /* Info.plist */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		CA64FF061BDFEF7500E6F2AC /* CodableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */,
+				CA64FF091BDFEF7500E6F2AC /* Info.plist */,
+			);
+			path = CodableTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CA64FEF51BDFEF7500E6F2AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA64FEFC1BDFEF7500E6F2AC /* Codable.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CA64FEF71BDFEF7500E6F2AC /* Codable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "Codable" */;
+			buildPhases = (
+				CA64FEF31BDFEF7500E6F2AC /* Sources */,
+				CA64FEF41BDFEF7500E6F2AC /* Frameworks */,
+				CA64FEF51BDFEF7500E6F2AC /* Headers */,
+				CA64FEF61BDFEF7500E6F2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Codable;
+			productName = Codable;
+			productReference = CA64FEF81BDFEF7500E6F2AC /* Codable.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CA64FF011BDFEF7500E6F2AC /* CodableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "CodableTests" */;
+			buildPhases = (
+				CA64FEFE1BDFEF7500E6F2AC /* Sources */,
+				CA64FEFF1BDFEF7500E6F2AC /* Frameworks */,
+				CA64FF001BDFEF7500E6F2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA64FF051BDFEF7500E6F2AC /* PBXTargetDependency */,
+			);
+			name = CodableTests;
+			productName = CodableTests;
+			productReference = CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA64FEEF1BDFEF7500E6F2AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = theholygrail.io;
+				TargetAttributes = {
+					CA64FEF71BDFEF7500E6F2AC = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					CA64FF011BDFEF7500E6F2AC = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "Codable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA64FEEE1BDFEF7500E6F2AC;
+			productRefGroup = CA64FEF91BDFEF7500E6F2AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA64FEF71BDFEF7500E6F2AC /* Codable */,
+				CA64FF011BDFEF7500E6F2AC /* CodableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA64FEF61BDFEF7500E6F2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA64FF001BDFEF7500E6F2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA64FEF31BDFEF7500E6F2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA64FEFE1BDFEF7500E6F2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA64FF081BDFEF7500E6F2AC /* CodableTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA64FF051BDFEF7500E6F2AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA64FEF71BDFEF7500E6F2AC /* Codable */;
+			targetProxy = CA64FF041BDFEF7500E6F2AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CA64FF0A1BDFEF7500E6F2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA64FF0B1BDFEF7500E6F2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA64FF0D1BDFEF7500E6F2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Codable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.Codable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CA64FF0E1BDFEF7500E6F2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Codable/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.Codable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CA64FF101BDFEF7500E6F2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CodableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.CodableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA64FF111BDFEF7500E6F2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CodableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.CodableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "Codable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA64FF0A1BDFEF7500E6F2AC /* Debug */,
+				CA64FF0B1BDFEF7500E6F2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "Codable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA64FF0D1BDFEF7500E6F2AC /* Debug */,
+				CA64FF0E1BDFEF7500E6F2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "CodableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA64FF101BDFEF7500E6F2AC /* Debug */,
+				CA64FF111BDFEF7500E6F2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA64FEEF1BDFEF7500E6F2AC /* Project object */;
+}
