@@ -4,7 +4,31 @@ THGCodable, a data model decoding/encoding framework for Swift.
 Proper docs forthcoming, for now, chew on this.
 
 ```swift
-// An example model.
+// An example model and submodel.
+
+struct SubModel {
+    let aSubString: String
+}
+
+// Add decode support to the submodel, no validation.
+
+extension SubModel: Decodable {
+    static func decode(json: JSON?) throws -> SubModel {
+        return try SubModel(
+            aSubString: json ==> "aSubString"
+        )
+    }
+}
+
+// Add encode support to the submodel, no validation.
+
+extension SubModel: Encodable {
+    func encode() throws -> JSON {
+        return try encodeToJSON([
+            "aSubString1" <== aSubString
+        ])
+    }
+}
 
 struct TestModel {
     // these will throw exceptions if the data isn't present, or can't be decoded.
