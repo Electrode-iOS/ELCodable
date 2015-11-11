@@ -1,7 +1,7 @@
 # Coconut
 THGCodable, a data model decoding/encoding framework for Swift.
 
-Proper docs forthcoming, for now, chew on this.
+Proper docs and tests forthcoming, for now, chew on this.
 
 ```swift
 // An example model and submodel.
