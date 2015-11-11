@@ -1,2 +1,2 @@
 # Coconut
-THGCodable, a Modeling decoding/encoding framework for Swift.
+THGCodable, a data model decoding/encoding framework for Swift.
