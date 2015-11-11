@@ -7,9 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA41BFFD1BF162F20055A539 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41BFFC1BF162F20055A539 /* Encodable.swift */; };
 		CA64FEFC1BDFEF7500E6F2AC /* Codable.h in Headers */ = {isa = PBXBuildFile; fileRef = CA64FEFB1BDFEF7500E6F2AC /* Codable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA64FF031BDFEF7500E6F2AC /* Codable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA64FEF81BDFEF7500E6F2AC /* Codable.framework */; };
+		CA64FF031BDFEF7500E6F2AC /* THGCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA64FEF81BDFEF7500E6F2AC /* THGCodable.framework */; };
 		CA64FF081BDFEF7500E6F2AC /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */; };
+		CA64FF161BDFEFB100E6F2AC /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF151BDFEFB100E6F2AC /* JSON.swift */; };
+		CA64FF181BDFF00500E6F2AC /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF171BDFF00500E6F2AC /* JSONTests.swift */; };
+		CA64FF1E1BDFF26500E6F2AC /* jsontest_models.json in Resources */ = {isa = PBXBuildFile; fileRef = CA64FF1D1BDFF26500E6F2AC /* jsontest_models.json */; };
+		CA64FF221BE8189F00E6F2AC /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF211BE8189F00E6F2AC /* Decodable.swift */; };
+		CA64FF261BE9403B00E6F2AC /* DecodeOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA64FF251BE9403B00E6F2AC /* DecodeOperators.swift */; };
+		CA8B21011BF255C300936449 /* EncodeOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B21001BF255C300936449 /* EncodeOperators.swift */; };
+		CA8B21031BF29EDD00936449 /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B21021BF29EDD00936449 /* EncodableExtensions.swift */; };
+		CAEE781E1BEE90FC005D0348 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE781D1BEE90FC005D0348 /* Decimal.swift */; };
+		CAF49D991BEAAD1E003FBFE2 /* DecodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF49D981BEAAD1E003FBFE2 /* DecodableExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +33,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA64FEF81BDFEF7500E6F2AC /* Codable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Codable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA41BFFC1BF162F20055A539 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		CA64FEF81BDFEF7500E6F2AC /* THGCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA64FEFB1BDFEF7500E6F2AC /* Codable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Codable.h; sourceTree = "<group>"; };
 		CA64FEFD1BDFEF7500E6F2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA64FF021BDFEF7500E6F2AC /* THGCodable.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THGCodable.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 		CA64FF091BDFEF7500E6F2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA64FF151BDFEFB100E6F2AC /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		CA64FF171BDFF00500E6F2AC /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		CA64FF1D1BDFF26500E6F2AC /* jsontest_models.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsontest_models.json; sourceTree = "<group>"; };
+		CA64FF211BE8189F00E6F2AC /* Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
+		CA64FF251BE9403B00E6F2AC /* DecodeOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodeOperators.swift; sourceTree = "<group>"; };
+		CA8B21001BF255C300936449 /* EncodeOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodeOperators.swift; sourceTree = "<group>"; };
+		CA8B21021BF29EDD00936449 /* EncodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodableExtensions.swift; sourceTree = "<group>"; };
+		CAEE781D1BEE90FC005D0348 /* Decimal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
+		CAF49D981BEAAD1E003FBFE2 /* DecodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodableExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA64FF031BDFEF7500E6F2AC /* Codable.framework in Frameworks */,
+				CA64FF031BDFEF7500E6F2AC /* THGCodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +73,7 @@
 		CA64FEEE1BDFEF7500E6F2AC = {
 			isa = PBXGroup;
 			children = (
-				CA64FEFA1BDFEF7500E6F2AC /* Codable */,
+				CA64FEFA1BDFEF7500E6F2AC /* THGCodable */,
 				CA64FF061BDFEF7500E6F2AC /* CodableTests */,
 				CA64FEF91BDFEF7500E6F2AC /* Products */,
 			);
@@ -62,28 +82,71 @@
 		CA64FEF91BDFEF7500E6F2AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA64FEF81BDFEF7500E6F2AC /* Codable.framework */,
-				CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */,
+				CA64FEF81BDFEF7500E6F2AC /* THGCodable.framework */,
+				CA64FF021BDFEF7500E6F2AC /* THGCodable.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA64FEFA1BDFEF7500E6F2AC /* Codable */ = {
+		CA64FEFA1BDFEF7500E6F2AC /* THGCodable */ = {
 			isa = PBXGroup;
 			children = (
+				CA64FF141BDFEF9E00E6F2AC /* Decodable */,
+				CA64FF131BDFEF9600E6F2AC /* Encodable */,
+				CA64FF121BDFEF8A00E6F2AC /* JSON */,
 				CA64FEFB1BDFEF7500E6F2AC /* Codable.h */,
+				CAEE781D1BEE90FC005D0348 /* Decimal.swift */,
 				CA64FEFD1BDFEF7500E6F2AC /* Info.plist */,
 			);
+			name = THGCodable;
 			path = Codable;
 			sourceTree = "<group>";
 		};
 		CA64FF061BDFEF7500E6F2AC /* CodableTests */ = {
 			isa = PBXGroup;
 			children = (
+				CA64FF1C1BDFF25600E6F2AC /* Test Data */,
 				CA64FF071BDFEF7500E6F2AC /* CodableTests.swift */,
+				CA64FF171BDFF00500E6F2AC /* JSONTests.swift */,
 				CA64FF091BDFEF7500E6F2AC /* Info.plist */,
 			);
 			path = CodableTests;
+			sourceTree = "<group>";
+		};
+		CA64FF121BDFEF8A00E6F2AC /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FF151BDFEFB100E6F2AC /* JSON.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		CA64FF131BDFEF9600E6F2AC /* Encodable */ = {
+			isa = PBXGroup;
+			children = (
+				CA41BFFC1BF162F20055A539 /* Encodable.swift */,
+				CA8B21001BF255C300936449 /* EncodeOperators.swift */,
+				CA8B21021BF29EDD00936449 /* EncodableExtensions.swift */,
+			);
+			name = Encodable;
+			sourceTree = "<group>";
+		};
+		CA64FF141BDFEF9E00E6F2AC /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FF211BE8189F00E6F2AC /* Decodable.swift */,
+				CA64FF251BE9403B00E6F2AC /* DecodeOperators.swift */,
+				CAF49D981BEAAD1E003FBFE2 /* DecodableExtensions.swift */,
+			);
+			name = Decodable;
+			sourceTree = "<group>";
+		};
+		CA64FF1C1BDFF25600E6F2AC /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				CA64FF1D1BDFF26500E6F2AC /* jsontest_models.json */,
+			);
+			name = "Test Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,9 +163,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CA64FEF71BDFEF7500E6F2AC /* Codable */ = {
+		CA64FEF71BDFEF7500E6F2AC /* THGCodable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "Codable" */;
+			buildConfigurationList = CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "THGCodable" */;
 			buildPhases = (
 				CA64FEF31BDFEF7500E6F2AC /* Sources */,
 				CA64FEF41BDFEF7500E6F2AC /* Frameworks */,
@@ -113,14 +176,14 @@
 			);
 			dependencies = (
 			);
-			name = Codable;
+			name = THGCodable;
 			productName = Codable;
-			productReference = CA64FEF81BDFEF7500E6F2AC /* Codable.framework */;
+			productReference = CA64FEF81BDFEF7500E6F2AC /* THGCodable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CA64FF011BDFEF7500E6F2AC /* CodableTests */ = {
+		CA64FF011BDFEF7500E6F2AC /* THGCodableTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "CodableTests" */;
+			buildConfigurationList = CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "THGCodableTests" */;
 			buildPhases = (
 				CA64FEFE1BDFEF7500E6F2AC /* Sources */,
 				CA64FEFF1BDFEF7500E6F2AC /* Frameworks */,
@@ -131,9 +194,9 @@
 			dependencies = (
 				CA64FF051BDFEF7500E6F2AC /* PBXTargetDependency */,
 			);
-			name = CodableTests;
+			name = THGCodableTests;
 			productName = CodableTests;
-			productReference = CA64FF021BDFEF7500E6F2AC /* CodableTests.xctest */;
+			productReference = CA64FF021BDFEF7500E6F2AC /* THGCodable.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -154,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "Codable" */;
+			buildConfigurationList = CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "THGCodable" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -166,8 +229,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA64FEF71BDFEF7500E6F2AC /* Codable */,
-				CA64FF011BDFEF7500E6F2AC /* CodableTests */,
+				CA64FEF71BDFEF7500E6F2AC /* THGCodable */,
+				CA64FF011BDFEF7500E6F2AC /* THGCodableTests */,
 			);
 		};
 /* End PBXProject section */
@@ -184,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA64FF1E1BDFF26500E6F2AC /* jsontest_models.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA64FF261BE9403B00E6F2AC /* DecodeOperators.swift in Sources */,
+				CA8B21031BF29EDD00936449 /* EncodableExtensions.swift in Sources */,
+				CA41BFFD1BF162F20055A539 /* Encodable.swift in Sources */,
+				CA8B21011BF255C300936449 /* EncodeOperators.swift in Sources */,
+				CA64FF161BDFEFB100E6F2AC /* JSON.swift in Sources */,
+				CA64FF221BE8189F00E6F2AC /* Decodable.swift in Sources */,
+				CAF49D991BEAAD1E003FBFE2 /* DecodableExtensions.swift in Sources */,
+				CAEE781E1BEE90FC005D0348 /* Decimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA64FF081BDFEF7500E6F2AC /* CodableTests.swift in Sources */,
+				CA64FF181BDFF00500E6F2AC /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +283,7 @@
 /* Begin PBXTargetDependency section */
 		CA64FF051BDFEF7500E6F2AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA64FEF71BDFEF7500E6F2AC /* Codable */;
+			target = CA64FEF71BDFEF7500E6F2AC /* THGCodable */;
 			targetProxy = CA64FF041BDFEF7500E6F2AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -308,6 +381,7 @@
 		CA64FF0D1BDFEF7500E6F2AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -316,14 +390,16 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.Codable;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = THGCodable;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CA64FF0E1BDFEF7500E6F2AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,7 +408,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.Codable;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = THGCodable;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -343,7 +419,7 @@
 				INFOPLIST_FILE = CodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.CodableTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = THGCodable;
 			};
 			name = Debug;
 		};
@@ -353,14 +429,14 @@
 				INFOPLIST_FILE = CodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.CodableTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = THGCodable;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "Codable" */ = {
+		CA64FEF21BDFEF7500E6F2AC /* Build configuration list for PBXProject "THGCodable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA64FF0A1BDFEF7500E6F2AC /* Debug */,
@@ -369,21 +445,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "Codable" */ = {
+		CA64FF0C1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "THGCodable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA64FF0D1BDFEF7500E6F2AC /* Debug */,
 				CA64FF0E1BDFEF7500E6F2AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "CodableTests" */ = {
+		CA64FF0F1BDFEF7500E6F2AC /* Build configuration list for PBXNativeTarget "THGCodableTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA64FF101BDFEF7500E6F2AC /* Debug */,
 				CA64FF111BDFEF7500E6F2AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
