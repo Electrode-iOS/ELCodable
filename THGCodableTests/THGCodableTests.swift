@@ -1,13 +1,13 @@
 //
-//  CodableTests.swift
-//  CodableTests
+//  THGCodableTests.swift
+//  THGCodableTests
 //
-//  Created by Brandon Sneed on 10/27/15.
+//  Created by Brandon Sneed on 11/12/15.
 //  Copyright © 2015 theholygrail.io. All rights reserved.
 //
 
 import XCTest
-@testable import Codable
+@testable import THGCodable
 
 struct SubModel {
     let aSubString: String
@@ -25,7 +25,7 @@ extension SubModel: Encodable {
     func encode() throws -> JSON {
         return try encodeToJSON([
             "aSubString1" <== aSubString
-        ])
+            ])
     }
 }
 
@@ -62,7 +62,7 @@ extension TestModel: Decodable {
             optModelNil: json ==> "optModelNil",
             optModelArray: json ==> "optModelArray",
             optModelArrayNil: json ==> "optModelArrayNil"
-        ).validateDecode()
+            ).validateDecode()
     }
     
     func validateDecode() throws -> TestModel {
@@ -84,7 +84,7 @@ extension TestModel: Encodable {
             "anArray1" <== anArray,
             "aModel1" <== aModel,
             "aModelArray1" <== aModelArray
-        ])
+            ])
     }
     
     func validateEncode() throws -> TestModel {
@@ -92,7 +92,7 @@ extension TestModel: Encodable {
     }
 }
 
-class CodableTests: XCTestCase {
+class THGCodableTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -140,4 +140,5 @@ class CodableTests: XCTestCase {
         let output = try? model?.encode()
         print(output)
     }
+
 }

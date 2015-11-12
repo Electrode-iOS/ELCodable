@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA64FEF71BDFEF7500E6F2AC"
+               BlueprintIdentifier = "CA0C9F151BF4AD08006459C7"
                BuildableName = "THGCodable.framework"
                BlueprintName = "THGCodable"
                ReferencedContainer = "container:THGCodable.xcodeproj">
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA64FF011BDFEF7500E6F2AC"
-               BuildableName = "THGCodable.xctest"
+               BlueprintIdentifier = "CA0C9F1F1BF4AD08006459C7"
+               BuildableName = "THGCodableTests.xctest"
                BlueprintName = "THGCodableTests"
                ReferencedContainer = "container:THGCodable.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CA64FEF71BDFEF7500E6F2AC"
+            BlueprintIdentifier = "CA0C9F151BF4AD08006459C7"
             BuildableName = "THGCodable.framework"
             BlueprintName = "THGCodable"
             ReferencedContainer = "container:THGCodable.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CA64FEF71BDFEF7500E6F2AC"
+            BlueprintIdentifier = "CA0C9F151BF4AD08006459C7"
             BuildableName = "THGCodable.framework"
             BlueprintName = "THGCodable"
             ReferencedContainer = "container:THGCodable.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CA64FEF71BDFEF7500E6F2AC"
+            BlueprintIdentifier = "CA0C9F151BF4AD08006459C7"
             BuildableName = "THGCodable.framework"
             BlueprintName = "THGCodable"
             ReferencedContainer = "container:THGCodable.xcodeproj">

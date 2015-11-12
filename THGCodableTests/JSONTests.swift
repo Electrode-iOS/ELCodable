@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Codable
+@testable import THGCodable
 
 class JSONTests: XCTestCase {
     
@@ -22,7 +22,7 @@ class JSONTests: XCTestCase {
     }
     
     func testReadingFromJSON() {
-        let json = JSON(bundleClass: CodableTests.self, filename: "jsontest_models.json")
+        let json = JSON(bundleClass: THGCodableTests.self, filename: "jsontest_models.json")
         
         let v = NSDecimalNumber.maximumDecimalNumber()
         print(v)
