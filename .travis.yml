@@ -1,0 +1,4 @@
+language: objective-c
+osx_image: xcode7
+script:
+   - xctool -project THGCodable.xcodeproj -scheme THGCodable -sdk iphonesimulator build test
