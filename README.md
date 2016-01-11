@@ -1,4 +1,5 @@
-# Coconut
+# Coconut [![Build Status](https://travis-ci.org/TheHolyGrail/Coconut.svg?branch=master)](https://travis-ci.org/TheHolyGrail/Coconut)
+
 THGCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
 
 Proper docs and tests forthcoming, for now, chew on this.
