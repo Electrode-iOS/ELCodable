@@ -15,7 +15,7 @@ public func <== <T: Encodable>(lhs: String, rhs: T) throws -> (String, JSON) {
     if let value = value {
         return (lhs, value)
     } else {
-        throw DecodeError.EmptyJSON
+        throw EncodeError.Unencodable
     }
 }
 
@@ -24,7 +24,7 @@ public func <== <T: Encodable>(lhs: String, rhs: [T]) throws -> (String, JSON) {
     if let value = value {
         return (lhs, value)
     } else {
-        throw DecodeError.EmptyJSON
+        throw EncodeError.Unencodable
     }
 }
 

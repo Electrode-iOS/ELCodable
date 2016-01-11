@@ -9,6 +9,23 @@
 import XCTest
 @testable import THGCodable
 
+enum TestIntEnum: Int, Decodable, Encodable {
+    case Test1
+    case Test2
+    case Test3
+    
+    static func decode(json: JSON?) throws -> TestIntEnum {
+        if let value = json?.int {
+            return TestIntEnum(rawValue: value)!
+        }
+        throw DecodeError.Undecodable
+    }
+    
+    func encode() throws -> JSON {
+        return JSON(rawValue)
+    }
+}
+
 struct SubModel {
     let aSubString: String
 }
@@ -37,6 +54,7 @@ struct TestModel {
     let anArray: [String]
     let aModel: SubModel
     let aModelArray: [SubModel]
+    let anIntEnum: TestIntEnum
     
     let optString: String?
     let optStringNil: Int?
@@ -44,6 +62,8 @@ struct TestModel {
     let optModelNil: SubModel?
     let optModelArray: [SubModel]?
     let optModelArrayNil: [SubModel]?
+    let optIntEnum: TestIntEnum?
+    let optIntEnumBadRange: TestIntEnum
 }
 
 extension TestModel: Decodable {
@@ -56,12 +76,15 @@ extension TestModel: Decodable {
             anArray: json ==> "anArray",
             aModel: json ==> "aModel",
             aModelArray: json ==> "aModelArray",
+            anIntEnum: json ==> "anIntEnum",
             optString: json ==> "optString",
             optStringNil: json ==> "optStringNil",
             optModel: json ==> "optModel",
             optModelNil: json ==> "optModelNil",
             optModelArray: json ==> "optModelArray",
-            optModelArrayNil: json ==> "optModelArrayNil"
+            optModelArrayNil: json ==> "optModelArrayNil",
+            optIntEnum: json ==> "optIntEnum",
+            optIntEnumBadRange: json ==> "anIntEnumBadRange"
             ).validateDecode()
     }
     
@@ -77,13 +100,17 @@ extension TestModel: Decodable {
 extension TestModel: Encodable {
     func encode() throws -> JSON {
         return try validateEncode().encodeToJSON([
-            "aString1" <== aString,
-            "aFloat1" <== aFloat,
-            "anInt1" <== anInt,
-            "aNumber1" <== aNumber,
-            "anArray1" <== anArray,
-            "aModel1" <== aModel,
-            "aModelArray1" <== aModelArray
+            "aStringOut" <== aString,
+            "aFloatOut" <== aFloat,
+            "anIntOut" <== anInt,
+            "aNumberOut" <== aNumber,
+            "anArrayOut" <== anArray,
+            "aModelOut" <== aModel,
+            "aModelArrayOut" <== aModelArray,
+            "anIntEnumOut" <== anIntEnum,
+            "optModel" <== optModel,
+            "optModelArrayNilOut" <== optModelArrayNil,
+            "optIntEnumOut" <== optIntEnum
             ])
     }
     
@@ -126,19 +153,30 @@ class THGCodableTests: XCTestCase {
         json["anArray"] = ["1", "2", "3", "4"]
         json["aModel"] = JSON(["aSubString": "value"])
         json["aModelArray"] = JSON([["aSubString": "value1"], ["aSubString": "value2"], ["aSubString": "value3"]])
+        json["anIntEnum"] = JSON(TestIntEnum.Test1.rawValue)
         
         // optional tests
         
         json["optString"] = JSON("helloAgain")
         json["optStringNil"] = JSON()
         json["optModel"] = ["aSubString": "value"]
+        json["optModelNil"] = nil
         json["optModelArray"] = JSON([["aSubString": "value1"], ["aSubString": "value2"], ["aSubString": "value3"]])
+        json["optModelArrayNil"] = nil
+        json["optIntEnum"] = JSON(TestIntEnum.Test2.rawValue)
+        json["optIntEnumBadRange"] = JSON(47)
         
-        let model = try? TestModel.decode(json)
-        print(model)
+        do {
+            let model = try TestModel.decode(json)
+            print(model)
+        } catch DecodeError.Empty(let field) {
+            print("required field \(field) was missing.")
+        } catch _ {
+            print("something happened, but i don't know what.")
+        }
         
-        let output = try? model?.encode()
-        print(output)
+        //let output = try? model?.encode()
+        //print(output)
     }
 
 }

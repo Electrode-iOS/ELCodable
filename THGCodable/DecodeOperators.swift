@@ -16,13 +16,13 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
     if let value = value {
         return value
     } else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.Empty(field: rhs)
     }
 }
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T] {
     guard let array = lhs?[rhs]?.array else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.Empty(field: rhs)
     }
     
     var results = [T]()
@@ -31,7 +31,7 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T] {
         if let value = try? T.decode(json) {
             results.append(value)
         } else {
-            throw DecodeError.EmptyJSON
+            throw DecodeError.Empty(field: rhs)
         }
     }
     
@@ -58,7 +58,7 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T]? {
         if let value = try? T.decode(json) {
             results.append(value)
         } else {
-            throw DecodeError.EmptyJSON
+            throw DecodeError.Invalid(field: rhs)
         }
     }
     

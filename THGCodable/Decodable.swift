@@ -9,7 +9,8 @@
 import Foundation
 
 public enum DecodeError: ErrorType {
-    case EmptyJSON
+    case Empty(field: String)
+    case Invalid(field: String)
     case Undecodable
     case ValidationUnimplemented
     case ValidationFailed

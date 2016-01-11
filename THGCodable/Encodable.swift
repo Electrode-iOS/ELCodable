@@ -9,6 +9,7 @@
 import Foundation
 
 public enum EncodeError: ErrorType {
+    case Unencodable
     case ValidationUnumplemented
     case ValidationFailed
 }
