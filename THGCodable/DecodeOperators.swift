@@ -10,36 +10,56 @@ import Foundation
 
 infix operator ==> { associativity right precedence 150 }
 
-
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
-    let value = try? T.decode(lhs?[rhs])
-    if let value = value {
-        return value
-    } else {
-        throw DecodeError.Empty(field: rhs)
+    guard let json = lhs else {
+        throw DecodeError.EmptyJSON
+    }
+    
+    if rhs == "cityjij" {
+        print("boo")
+    }
+    
+    do {
+        let value: T? = try T.decode(json[rhs])
+        if let value = value {
+            return value
+        } else {
+            throw DecodeError.NotFound(key: rhs)
+        }
+    } catch {
+        // if decode got an error, it'll be EmptyJSON.
+        // this is because json[rhs] returns nil if the key doesn't exist.
+        // so throw what we actually mean/want.
+        throw DecodeError.NotFound(key: rhs)
     }
 }
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T] {
-    guard let array = lhs?[rhs]?.array else {
-        throw DecodeError.Empty(field: rhs)
+    guard let json = lhs else {
+        throw DecodeError.EmptyJSON
+    }
+    
+    guard let array = json[rhs]?.array else {
+        throw DecodeError.NotFound(key: rhs)
     }
     
     var results = [T]()
     
     for json in array {
-        if let value = try? T.decode(json) {
-            results.append(value)
-        } else {
-            throw DecodeError.Empty(field: rhs)
-        }
+        // will throw a NotFound() if this decode fails.
+        let value = try T.decode(json)
+        results.append(value)
     }
     
     return results
 }
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T? {
-    let value = try? T.decode(lhs?[rhs])
+    guard let json = lhs else {
+        throw DecodeError.EmptyJSON
+    }
+    
+    let value = try? T.decode(json[rhs])
     if let value = value {
         return value
     } else {
@@ -48,7 +68,11 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T? {
 }
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T]? {
-    guard let array = lhs?[rhs]?.array else {
+    guard let json = lhs else {
+        throw DecodeError.EmptyJSON
+    }
+    
+    guard let array = json[rhs]?.array else {
         return nil
     }
     
@@ -57,8 +81,6 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T]? {
     for json in array {
         if let value = try? T.decode(json) {
             results.append(value)
-        } else {
-            throw DecodeError.Invalid(field: rhs)
         }
     }
     

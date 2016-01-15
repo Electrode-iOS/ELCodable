@@ -9,11 +9,11 @@
 import Foundation
 
 public enum DecodeError: ErrorType {
-    case Empty(field: String)
-    case Invalid(field: String)
+    case EmptyJSON
     case Undecodable
     case ValidationUnimplemented
     case ValidationFailed
+    case NotFound(key: String)
 }
 
 public protocol Decodable {

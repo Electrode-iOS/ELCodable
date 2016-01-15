@@ -13,7 +13,11 @@ extension String: Decodable {
         if let value = json?.string {
             return value
         }
-        throw DecodeError.Undecodable
+        if json != nil {
+            throw DecodeError.Undecodable
+        } else {
+            throw DecodeError.EmptyJSON
+        }
     }
 }
 
