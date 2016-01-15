@@ -15,22 +15,15 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
         throw DecodeError.EmptyJSON
     }
     
-    if rhs == "cityjij" {
-        print("boo")
-    }
-    
     do {
-        let value: T? = try T.decode(json[rhs])
+        let value: T? = try? T.decode(json[rhs])
         if let value = value {
             return value
         } else {
             throw DecodeError.NotFound(key: rhs)
         }
-    } catch {
-        // if decode got an error, it'll be EmptyJSON.
-        // this is because json[rhs] returns nil if the key doesn't exist.
-        // so throw what we actually mean/want.
-        throw DecodeError.NotFound(key: rhs)
+    } catch let error {
+        throw error
     }
 }
 
