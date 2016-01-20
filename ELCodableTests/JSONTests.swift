@@ -3,11 +3,11 @@
 //  Codable
 //
 //  Created by Brandon Sneed on 10/27/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-@testable import THGCodable
+@testable import ELCodable
 
 class JSONTests: XCTestCase {
     
@@ -22,7 +22,7 @@ class JSONTests: XCTestCase {
     }
     
     func testReadingFromJSON() {
-        let json = JSON(bundleClass: THGCodableTests.self, filename: "jsontest_models.json")
+        let json = JSON(bundleClass: ELCodableTests.self, filename: "jsontest_models.json")
         
         let v = NSDecimalNumber.maximumDecimalNumber()
         print(v)

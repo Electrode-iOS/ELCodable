@@ -1,13 +1,13 @@
 //
 //  NestedErrorTesting.swift
-//  THGCodable
+//  ELCodable
 //
 //  Created by Brandon Sneed on 1/12/16.
-//  Copyright © 2016 theholygrail.io. All rights reserved.
+//  Copyright © 2016 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-import THGCodable
+import ELCodable
 import CoreLocation
 
 // MARK: WMSNGAddress

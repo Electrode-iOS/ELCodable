@@ -1,13 +1,13 @@
 //
 //  DecimalTests.swift
-//  THGCodable
+//  ELCodable
 //
 //  Created by Brandon Sneed on 1/15/16.
-//  Copyright © 2016 theholygrail.io. All rights reserved.
+//  Copyright © 2016 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-import THGCodable
+import ELCodable
 
 class DecimalTests: XCTestCase {
 

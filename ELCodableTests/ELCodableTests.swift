@@ -1,13 +1,13 @@
 //
-//  THGCodableTests.swift
-//  THGCodableTests
+//  ELCodableTests.swift
+//  ELCodableTests
 //
 //  Created by Brandon Sneed on 11/12/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-@testable import THGCodable
+@testable import ELCodable
 
 struct SubModel {
     let aSubString: String
@@ -92,7 +92,7 @@ extension TestModel: Encodable {
     }
 }
 
-class THGCodableTests: XCTestCase {
+class ELCodableTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

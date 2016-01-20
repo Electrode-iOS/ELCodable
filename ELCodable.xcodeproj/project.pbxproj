@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA0C9F1A1BF4AD08006459C7 /* THGCodable.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0C9F191BF4AD08006459C7 /* THGCodable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA0C9F211BF4AD08006459C7 /* THGCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0C9F161BF4AD08006459C7 /* THGCodable.framework */; };
-		CA0C9F261BF4AD08006459C7 /* THGCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F251BF4AD08006459C7 /* THGCodableTests.swift */; };
+		CA0C9F1A1BF4AD08006459C7 /* ELCodable.h in Headers */ = {isa = PBXBuildFile; fileRef = CA0C9F191BF4AD08006459C7 /* ELCodable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA0C9F211BF4AD08006459C7 /* ELCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA0C9F161BF4AD08006459C7 /* ELCodable.framework */; };
+		CA0C9F261BF4AD08006459C7 /* ELCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F251BF4AD08006459C7 /* ELCodableTests.swift */; };
 		CA0C9F361BF4AD6C006459C7 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F331BF4AD6C006459C7 /* Decodable.swift */; };
 		CA0C9F371BF4AD6C006459C7 /* DecodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F341BF4AD6C006459C7 /* DecodableExtensions.swift */; };
 		CA0C9F381BF4AD6C006459C7 /* DecodeOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F351BF4AD6C006459C7 /* DecodeOperators.swift */; };
@@ -31,16 +31,16 @@
 			containerPortal = CA0C9F0D1BF4AD08006459C7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CA0C9F151BF4AD08006459C7;
-			remoteInfo = THGCodable;
+			remoteInfo = ELCodable;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA0C9F161BF4AD08006459C7 /* THGCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA0C9F191BF4AD08006459C7 /* THGCodable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGCodable.h; sourceTree = "<group>"; };
+		CA0C9F161BF4AD08006459C7 /* ELCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0C9F191BF4AD08006459C7 /* ELCodable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCodable.h; sourceTree = "<group>"; };
 		CA0C9F1B1BF4AD08006459C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA0C9F201BF4AD08006459C7 /* THGCodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THGCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA0C9F251BF4AD08006459C7 /* THGCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THGCodableTests.swift; sourceTree = "<group>"; };
+		CA0C9F201BF4AD08006459C7 /* ELCodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0C9F251BF4AD08006459C7 /* ELCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELCodableTests.swift; sourceTree = "<group>"; };
 		CA0C9F271BF4AD08006459C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA0C9F331BF4AD6C006459C7 /* Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
 		CA0C9F341BF4AD6C006459C7 /* DecodableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodableExtensions.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA0C9F211BF4AD08006459C7 /* THGCodable.framework in Frameworks */,
+				CA0C9F211BF4AD08006459C7 /* ELCodable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +79,8 @@
 		CA0C9F0C1BF4AD08006459C7 = {
 			isa = PBXGroup;
 			children = (
-				CA0C9F181BF4AD08006459C7 /* THGCodable */,
-				CA0C9F241BF4AD08006459C7 /* THGCodableTests */,
+				CA0C9F181BF4AD08006459C7 /* ELCodable */,
+				CA0C9F241BF4AD08006459C7 /* ELCodableTests */,
 				CA0C9F171BF4AD08006459C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,36 +88,36 @@
 		CA0C9F171BF4AD08006459C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA0C9F161BF4AD08006459C7 /* THGCodable.framework */,
-				CA0C9F201BF4AD08006459C7 /* THGCodableTests.xctest */,
+				CA0C9F161BF4AD08006459C7 /* ELCodable.framework */,
+				CA0C9F201BF4AD08006459C7 /* ELCodableTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA0C9F181BF4AD08006459C7 /* THGCodable */ = {
+		CA0C9F181BF4AD08006459C7 /* ELCodable */ = {
 			isa = PBXGroup;
 			children = (
 				CA0C9F301BF4AD39006459C7 /* Decodable */,
 				CA0C9F311BF4AD41006459C7 /* Encodable */,
 				CA0C9F321BF4AD47006459C7 /* JSON */,
-				CA0C9F191BF4AD08006459C7 /* THGCodable.h */,
+				CA0C9F191BF4AD08006459C7 /* ELCodable.h */,
 				CA0C9F411BF4AD92006459C7 /* Decimal.swift */,
 				CA0C9F1B1BF4AD08006459C7 /* Info.plist */,
 			);
-			path = THGCodable;
+			path = ELCodable;
 			sourceTree = "<group>";
 		};
-		CA0C9F241BF4AD08006459C7 /* THGCodableTests */ = {
+		CA0C9F241BF4AD08006459C7 /* ELCodableTests */ = {
 			isa = PBXGroup;
 			children = (
 				CA0C9F431BF4ADC4006459C7 /* Test Data */,
-				CA0C9F251BF4AD08006459C7 /* THGCodableTests.swift */,
+				CA0C9F251BF4AD08006459C7 /* ELCodableTests.swift */,
 				CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */,
 				CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */,
 				CAF4B88E1C496F36000A42C7 /* DecimalTests.swift */,
 				CA0C9F271BF4AD08006459C7 /* Info.plist */,
 			);
-			path = THGCodableTests;
+			path = ELCodableTests;
 			sourceTree = "<group>";
 		};
 		CA0C9F301BF4AD39006459C7 /* Decodable */ = {
@@ -164,16 +164,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA0C9F1A1BF4AD08006459C7 /* THGCodable.h in Headers */,
+				CA0C9F1A1BF4AD08006459C7 /* ELCodable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CA0C9F151BF4AD08006459C7 /* THGCodable */ = {
+		CA0C9F151BF4AD08006459C7 /* ELCodable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA0C9F2A1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "THGCodable" */;
+			buildConfigurationList = CA0C9F2A1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "ELCodable" */;
 			buildPhases = (
 				CA0C9F111BF4AD08006459C7 /* Sources */,
 				CA0C9F121BF4AD08006459C7 /* Frameworks */,
@@ -184,14 +184,14 @@
 			);
 			dependencies = (
 			);
-			name = THGCodable;
-			productName = THGCodable;
-			productReference = CA0C9F161BF4AD08006459C7 /* THGCodable.framework */;
+			name = ELCodable;
+			productName = ELCodable;
+			productReference = CA0C9F161BF4AD08006459C7 /* ELCodable.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CA0C9F1F1BF4AD08006459C7 /* THGCodableTests */ = {
+		CA0C9F1F1BF4AD08006459C7 /* ELCodableTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA0C9F2D1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "THGCodableTests" */;
+			buildConfigurationList = CA0C9F2D1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "ELCodableTests" */;
 			buildPhases = (
 				CA0C9F1C1BF4AD08006459C7 /* Sources */,
 				CA0C9F1D1BF4AD08006459C7 /* Frameworks */,
@@ -202,9 +202,9 @@
 			dependencies = (
 				CA0C9F231BF4AD08006459C7 /* PBXTargetDependency */,
 			);
-			name = THGCodableTests;
-			productName = THGCodableTests;
-			productReference = CA0C9F201BF4AD08006459C7 /* THGCodableTests.xctest */;
+			name = ELCodableTests;
+			productName = ELCodableTests;
+			productReference = CA0C9F201BF4AD08006459C7 /* ELCodableTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
-				ORGANIZATIONNAME = theholygrail.io;
+				ORGANIZATIONNAME = WalmartLabs;
 				TargetAttributes = {
 					CA0C9F151BF4AD08006459C7 = {
 						CreatedOnToolsVersion = 7.1;
@@ -225,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA0C9F101BF4AD08006459C7 /* Build configuration list for PBXProject "THGCodable" */;
+			buildConfigurationList = CA0C9F101BF4AD08006459C7 /* Build configuration list for PBXProject "ELCodable" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -237,8 +237,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA0C9F151BF4AD08006459C7 /* THGCodable */,
-				CA0C9F1F1BF4AD08006459C7 /* THGCodableTests */,
+				CA0C9F151BF4AD08006459C7 /* ELCodable */,
+				CA0C9F1F1BF4AD08006459C7 /* ELCodableTests */,
 			);
 		};
 /* End PBXProject section */
@@ -283,7 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3952A91C45C44B00A24CDF /* NestedErrorTesting.swift in Sources */,
-				CA0C9F261BF4AD08006459C7 /* THGCodableTests.swift in Sources */,
+				CA0C9F261BF4AD08006459C7 /* ELCodableTests.swift in Sources */,
 				CA0C9F471BF4ADE0006459C7 /* JSONTests.swift in Sources */,
 				CAF4B88F1C496F36000A42C7 /* DecimalTests.swift in Sources */,
 			);
@@ -294,7 +294,7 @@
 /* Begin PBXTargetDependency section */
 		CA0C9F231BF4AD08006459C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA0C9F151BF4AD08006459C7 /* THGCodable */;
+			target = CA0C9F151BF4AD08006459C7 /* ELCodable */;
 			targetProxy = CA0C9F221BF4AD08006459C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -397,11 +397,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = THGCodable/Info.plist;
+				INFOPLIST_FILE = ELCodable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.THGCodable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -416,11 +416,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = THGCodable/Info.plist;
+				INFOPLIST_FILE = ELCodable/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.THGCodable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -429,9 +429,9 @@
 		CA0C9F2E1BF4AD08006459C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = THGCodableTests/Info.plist;
+				INFOPLIST_FILE = ELCodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.THGCodableTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -439,9 +439,9 @@
 		CA0C9F2F1BF4AD08006459C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = THGCodableTests/Info.plist;
+				INFOPLIST_FILE = ELCodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.theholygrail.THGCodableTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -449,7 +449,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA0C9F101BF4AD08006459C7 /* Build configuration list for PBXProject "THGCodable" */ = {
+		CA0C9F101BF4AD08006459C7 /* Build configuration list for PBXProject "ELCodable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA0C9F281BF4AD08006459C7 /* Debug */,
@@ -458,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA0C9F2A1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "THGCodable" */ = {
+		CA0C9F2A1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "ELCodable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA0C9F2B1BF4AD08006459C7 /* Debug */,
@@ -467,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA0C9F2D1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "THGCodableTests" */ = {
+		CA0C9F2D1BF4AD08006459C7 /* Build configuration list for PBXNativeTarget "ELCodableTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA0C9F2E1BF4AD08006459C7 /* Debug */,
