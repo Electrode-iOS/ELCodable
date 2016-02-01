@@ -29,6 +29,10 @@ public func <== <T: Encodable>(lhs: String, rhs: [T]) throws -> (String, JSON) {
 }
 
 public func <== <T: Encodable>(lhs: String, rhs: T?) throws -> (String, JSON) {
+    if rhs == nil {
+        return (lhs, JSON())
+    }
+    
     let value = try? rhs?.encode()
     if let value = value {
         return (lhs, value!)
