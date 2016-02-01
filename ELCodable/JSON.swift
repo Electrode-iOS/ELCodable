@@ -114,6 +114,15 @@ public struct JSON {
     }
 }
 
+extension JSON {
+    func data() -> NSData? {
+        if let object = object {
+            return try? NSJSONSerialization.dataWithJSONObject(object, options: .PrettyPrinted)
+        }
+        return nil
+    }
+}
+
 // MARK: - Types (Debugging)
 extension JSON {
     public var type: JSONType {
