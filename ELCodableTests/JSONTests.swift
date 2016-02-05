@@ -73,7 +73,7 @@ class JSONTests: XCTestCase {
         json["dictData"] = JSON(dictData)
         
         XCTAssertTrue(json["arrayData"]!.array! == JSON(arrayData).array!)
-        XCTAssertTrue(json["dictData"]!.array! == JSON(dictData).array!)
+        XCTAssertTrue(json["dictData"]!.dictionary! == JSON(dictData).dictionary!)
     }
     
 }
