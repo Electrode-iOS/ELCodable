@@ -98,14 +98,19 @@ class NestedErrorTesting: XCTestCase {
     
         let json = JSON(bundleClass: NestedErrorTesting.self, filename: "NestedErrorTesting.json")
         
+        var thrownError: ErrorType? = nil
+        
         do {
             let store = try WMSNGStore.decode(json)
             print(store)
         } catch DecodeError.EmptyJSON {
             print("JSON was empty.")
         } catch let error {
-            print(error)
+            thrownError = error
         }
+        
+        XCTAssertTrue(thrownError != nil)
+        XCTAssertTrue(thrownError.debugDescription == "Optional(ELCodable.DecodeError.NotFound(\"address\"))")
     }
 
 }

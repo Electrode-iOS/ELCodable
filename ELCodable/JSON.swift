@@ -128,14 +128,21 @@ extension JSON {
     public var type: JSONType {
         if let object = object {
             switch object {
+            case is NSString:
+                return .String
             case is NSArray:
                 return .Array
             case is NSDictionary:
                 return .Dictionary
-            case is Int, is Float, is Double:
+            case is NSNumber:
+                let number = object as! NSNumber
+                let type = String.fromCString(number.objCType)!
+                // there's no such thing as a 'char' in json, but that's
+                // what the serializer types it as.
+                if type == "c" {
+                    return .Bool
+                }
                 return .Number
-            case is Bool:
-                return .Bool
             case is NSNull:
                 return .Null
             default:
@@ -603,4 +610,6 @@ public func ==(lhs: JSON, rhs: JSON) -> Bool {
     
     return false
 }
+
+
 
