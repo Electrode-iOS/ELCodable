@@ -1,4 +1,4 @@
-# Coconut [![Build Status](https://travis-ci.org/WalmartLabs/Coconut.svg?branch=master)](https://travis-ci.org/WalmartLabs/Coconut)
+# ELCodable [![Build Status](https://travis-ci.org/WalmartLabs/ELCodable.svg?branch=master)](https://travis-ci.org/WalmartLabs/ELCodable)
 
 ELCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
 
