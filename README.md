@@ -2,104 +2,84 @@
 
 ELCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
 
-Proper docs and tests forthcoming, for now, chew on this.
+## Introduction
 
-```swift
-// An example model and submodel.
+ELCodable provides an easy mechanism by which to encode/decode JSON data into proper swift models w/ data mutability/immutability.  
 
-struct SubModel {
-    let aSubString: String
+It provides the following functionality:
+
+* Swift optionals to determine required fields from optional fields.
+* An easy to use JSON wrapper.
+* Encoding to JSON.
+* Decoding from JSON.
+* Type conversion, both in model types as well as common forms of JSON, such as NSData, Dictionaries, Arrays, etc.
+* Data validation.
+
+## Defining & using your model
+
+```Swift
+struct MyModel {
+    let myString: String
+    let myNumber: UInt
 }
+```
 
-// Add decode support to the submodel, no validation.
+Once you've defined your model, now extend it such that it works with the decoder.
 
-extension SubModel: Decodable {
-    static func decode(json: JSON?) throws -> SubModel {
-        return try SubModel(
-            aSubString: json ==> "aSubString"
+```Swift
+extension MyModel: Decodable {
+    static func decode(json: JSON?) throws -> MyModel {
+        return try MyModel(
+            myString: json ==> "myString",
+            myNumber: json ==> "myNumber"
         )
     }
 }
-
-// Add encode support to the submodel, no validation.
-
-extension SubModel: Encodable {
-    func encode() throws -> JSON {
-        return try encodeToJSON([
-            "aSubString1" <== aSubString
-        ])
-    }
-}
-
-struct TestModel {
-    // these will throw exceptions if the data isn't present, or can't be decoded.
-    let aString: String
-    let aFloat: Float
-    let anInt: Int
-    let aNumber: Decimal
-    let anArray: [String]
-    let aModel: SubModel
-    let aModelArray: [SubModel]
-    
-    // these will NOT throw exceptions if the data isn't present.  If the data
-    // is there and can't be encoded, only then will an exception be thrown.
-    let optString: String?
-    let optStringNil: Int?
-    let optModel: SubModel?
-    let optModelNil: SubModel?
-    let optModelArray: [SubModel]?
-    let optModelArrayNil: [SubModel]?
-}
-
-// Adds the ability to decode it from JSON.
-
-extension TestModel: Decodable {
-    static func decode(json: JSON?) throws -> TestModel {
-        return try TestModel(
-            aString: json ==> "aString",
-            aFloat: json ==> "aFloat",
-            anInt: json ==> "anInt",
-            aNumber: json ==> "aNumber",
-            anArray: json ==> "anArray",
-            aModel: json ==> "aModel",
-            aModelArray: json ==> "aModelArray",
-            optString: json ==> "optString",
-            optStringNil: json ==> "optStringNil",
-            optModel: json ==> "optModel",
-            optModelNil: json ==> "optModelNil",
-            optModelArray: json ==> "optModelArray",
-            optModelArrayNil: json ==> "optModelArrayNil"
-        ).validateDecode()
-    }
-    
-    func validateDecode() throws -> TestModel {
-        if aFloat == 1.234 {
-            return self
-        } else {
-            throw DecodeError.ValidationFailed
-        }
-    }
-}
-
-// Adds the ability to encode to JSON
-
-extension TestModel: Encodable {
-    func encode() throws -> JSON {
-        return try validateEncode().encodeToJSON([
-            "aString1" <== aString,
-            "aFloat1" <== aFloat,
-            "anInt1" <== anInt,
-            "aNumber1" <== aNumber,
-            "anArray1" <== anArray,
-            "aModel1" <== aModel,
-            "aModelArray1" <== aModelArray
-        ])
-    }
-    
-    func validateEncode() throws -> TestModel {
-        // you can do something here, or not even implement it. and skip the validateEncode() call above.
-        return self
-    }
-}
-
 ```
+
+The above will allow your model to be decoded.  As for triggering decoding, you've got a few options...
+
+The simplest way:
+```Swift
+let myModel = try? MyModel.decode(json)
+```
+
+At this point, myModel will either have a value, or be nil.  If you'd like more information on what caused a failure, you can do this:
+
+```Swift
+do {
+    // decode the json
+    let myModel = try MyModel.decode(json)
+    // do something with the model
+    doSomething(myModel)
+} catch DecodeError.NotFound(let key) {
+    print("MyModel couldn't be decoded because \(key) couldn't be found.")
+} catch let error {
+    // catch all for any errors that may happen.
+}
+```
+
+Now that we've decoded and done something with our model.  Lets look at how encoding would work.
+
+## Encoding
+
+```Swift
+extension MyModel: Encodable {
+    func encode() throws -> JSON {
+        return try encodeToJSON(
+            "myString" <== myString,
+            "myNumber" <== myNumber
+        )
+    }
+}
+```
+
+Now that you've done this, you can send it to disk wherever else it might need to go.
+
+```Swift
+let json = try? myModel.encode()
+if let json = json {
+    json.data().writeToFile(path)
+}
+```
+}
