@@ -3,12 +3,13 @@
 //  Codable
 //
 //  Created by Brandon Sneed on 11/9/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import Foundation
 
 public enum EncodeError: ErrorType {
+    case Unencodable
     case ValidationUnumplemented
     case ValidationFailed
 }

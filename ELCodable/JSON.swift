@@ -114,19 +114,35 @@ public struct JSON {
     }
 }
 
+extension JSON {
+    func data() -> NSData? {
+        if let object = object {
+            return try? NSJSONSerialization.dataWithJSONObject(object, options: .PrettyPrinted)
+        }
+        return nil
+    }
+}
+
 // MARK: - Types (Debugging)
 extension JSON {
     public var type: JSONType {
         if let object = object {
             switch object {
+            case is NSString:
+                return .String
             case is NSArray:
                 return .Array
             case is NSDictionary:
                 return .Dictionary
-            case is Int, is Float, is Double:
+            case is NSNumber:
+                let number = object as! NSNumber
+                let type = String.fromCString(number.objCType)!
+                // there's no such thing as a 'char' in json, but that's
+                // what the serializer types it as.
+                if type == "c" {
+                    return .Bool
+                }
                 return .Number
-            case is Bool:
-                return .Bool
             case is NSNull:
                 return .Null
             default:
@@ -296,20 +312,51 @@ extension JSON {
         if let object = object {
             var value: NSDecimalNumber? = nil
             switch object {
-            case is NSDecimalNumber:
-                value = object as? NSDecimalNumber
-            case is NSNumber:
-                let decimalValue = (object as? NSNumber)?.decimalValue
-                if let decimalValue = decimalValue {
-                    value = NSDecimalNumber(decimal: decimalValue)
-                }
             case is String:
                 let stringValue = object as? String
                 if let stringValue = stringValue {
                     value = NSDecimalNumber(string: stringValue)
                 }
+                
+            case is NSDecimalNumber:
+                value = object as? NSDecimalNumber
+                
+            case is NSNumber:
+                // We need to jump through some hoops here. NSNumber's decimalValue doesn't guarantee
+                // exactness for float and double types.  See "decimalValue" on NSNumber.
+                let number = object as! NSNumber
+                let type = String.fromCString(number.objCType)!
+                
+                // type encodings can be found here:
+                // https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
+                
+                switch(type) {
+                    // treat the integer based ones the same and just use
+                    // the largest type.  No worries here about rounding.
+                case "c", "i", "s", "l", "q":
+                    value = NSDecimalNumber(longLong: number.longLongValue)
+                    break
+                    // do the same with the unsigned types.
+                case "C", "I", "S", "L", "Q":
+                    value = NSDecimalNumber(unsignedLongLong: number.unsignedLongLongValue)
+                    break
+                    // and again with precision types.
+                case "f", "d":
+                    value = NSDecimalNumber(double: number.doubleValue)
+                    // not sure if we need to handle this, but just in case.
+                    // it shouldn't hurt anything.
+                case "*":
+                    value = NSDecimalNumber(string: number.stringValue)
+                    // probably don't need this one either, but oh well.
+                case "B":
+                    value = NSDecimalNumber(bool: number.boolValue)
+                    
+                default:
+                    break
+                }
+                
             default:
-                break;
+                break
             }
             
             return value
@@ -563,4 +610,6 @@ public func ==(lhs: JSON, rhs: JSON) -> Bool {
     
     return false
 }
+
+
 

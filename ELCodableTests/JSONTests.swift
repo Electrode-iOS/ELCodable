@@ -3,11 +3,11 @@
 //  Codable
 //
 //  Created by Brandon Sneed on 10/27/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-@testable import THGCodable
+@testable import ELCodable
 
 class JSONTests: XCTestCase {
     
@@ -22,23 +22,27 @@ class JSONTests: XCTestCase {
     }
     
     func testReadingFromJSON() {
-        let json = JSON(bundleClass: THGCodableTests.self, filename: "jsontest_models.json")
+        let json = JSON(bundleClass: ELCodableTests.self, filename: "jsontest_models.json")
         
-        let v = NSDecimalNumber.maximumDecimalNumber()
-        print(v)
-        
-        //let str = json?["mystring"]?.stringValue
-        //let dbl = json?["double"]?.numberValue
-        print(json?["mystring"]?.type, ",", json?["mystring"]?.string)
-        print(json?["decimalNumber"]?.type, ",", json?["decimalNumber"]?.number)
-        print(json?["decimalNumber"]?.type, ",", json?["decimalNumber"]?.string)
-        print(json?["boolString"]?.type, ",", json?["boolString"]?.bool)
-        print(json?["double"]?.type, ",", json?["double"]?.double)
-        print(json?["double"]?.type, ",", json?["double"]?.string)
-        
-        //let b = NSNumber(float: 3.14)
-        
-        //print(b.numberValue)
+        // types
+        /*
+        case Number
+        case String
+        case Bool
+        case Array
+        case Dictionary
+        case Null
+        case Unknown
+        */
+
+        XCTAssertTrue(json?["mystring"]?.type == .String)
+        XCTAssertTrue(json?["decimalNumber"]?.type == .Number)
+        XCTAssertTrue(json?["bool"]?.type == .Bool)
+        XCTAssertTrue(json?["double"]?.type == .Number)
+        XCTAssertTrue(json?["int"]?.type == .Number)
+        XCTAssertTrue(json?["myarray1"]?.type == .Array)
+        XCTAssertTrue(json?["mydictionary"]?.type == .Dictionary)
+        XCTAssertTrue(json?["null"]?.type == .Null)
     }
     
     func testWritingToJSON() {
@@ -68,13 +72,8 @@ class JSONTests: XCTestCase {
         json["arrayData"] = JSON(arrayData)
         json["dictData"] = JSON(dictData)
         
-        for (value) in json["arrayData"]!.array! {
-            print(value)
-        }
-        
-        for (key, value) in json["dictData"]!.dictionary! {
-            print(key, value)
-        }
+        XCTAssertTrue(json["arrayData"]!.array! == JSON(arrayData).array!)
+        XCTAssertTrue(json["dictData"]!.dictionary! == JSON(dictData).dictionary!)
     }
     
 }
