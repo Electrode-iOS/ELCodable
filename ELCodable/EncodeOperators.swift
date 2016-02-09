@@ -3,7 +3,7 @@
 //  Codable
 //
 //  Created by Brandon Sneed on 11/10/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import Foundation
@@ -15,7 +15,7 @@ public func <== <T: Encodable>(lhs: String, rhs: T) throws -> (String, JSON) {
     if let value = value {
         return (lhs, value)
     } else {
-        throw DecodeError.EmptyJSON
+        throw EncodeError.Unencodable
     }
 }
 
@@ -24,11 +24,15 @@ public func <== <T: Encodable>(lhs: String, rhs: [T]) throws -> (String, JSON) {
     if let value = value {
         return (lhs, value)
     } else {
-        throw DecodeError.EmptyJSON
+        throw EncodeError.Unencodable
     }
 }
 
 public func <== <T: Encodable>(lhs: String, rhs: T?) throws -> (String, JSON) {
+    if rhs == nil {
+        return (lhs, JSON())
+    }
+    
     let value = try? rhs?.encode()
     if let value = value {
         return (lhs, value!)
@@ -38,6 +42,10 @@ public func <== <T: Encodable>(lhs: String, rhs: T?) throws -> (String, JSON) {
 }
 
 public func <== <T: Encodable>(lhs: String, rhs: [T]?) throws -> (String, JSON) {
+    if rhs == nil {
+        return (lhs, JSON())
+    }
+    
     let value = try? rhs?.encode()
     if let value = value {
         return (lhs, value!)

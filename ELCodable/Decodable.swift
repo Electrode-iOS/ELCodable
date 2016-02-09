@@ -3,7 +3,7 @@
 //  Codable
 //
 //  Created by Brandon Sneed on 11/2/15.
-//  Copyright © 2015 theholygrail.io. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import Foundation
@@ -13,6 +13,7 @@ public enum DecodeError: ErrorType {
     case Undecodable
     case ValidationUnimplemented
     case ValidationFailed
+    case NotFound(key: String)
 }
 
 public protocol Decodable {
