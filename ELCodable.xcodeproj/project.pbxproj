@@ -22,6 +22,8 @@
 		CA0C9F471BF4ADE0006459C7 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */; };
 		CA3952A71C45C44200A24CDF /* NestedErrorTesting.json in Resources */ = {isa = PBXBuildFile; fileRef = CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */; };
 		CA3952A91C45C44B00A24CDF /* NestedErrorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */; };
+		CAB204521C7CD7EF00061469 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB204511C7CD7EF00061469 /* OptionalTests.swift */; };
+		CAB204541C7CDD1000061469 /* OptionalTests.json in Resources */ = {isa = PBXBuildFile; fileRef = CAB204531C7CDD1000061469 /* OptionalTests.json */; };
 		CAF4B88F1C496F36000A42C7 /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF4B88E1C496F36000A42C7 /* DecimalTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
 		CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NestedErrorTesting.json; sourceTree = "<group>"; };
 		CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedErrorTesting.swift; sourceTree = "<group>"; };
+		CAB204511C7CD7EF00061469 /* OptionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
+		CAB204531C7CDD1000061469 /* OptionalTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OptionalTests.json; sourceTree = "<group>"; };
 		CAF4B88E1C496F36000A42C7 /* DecimalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,7 @@
 				CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */,
 				CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */,
 				CAF4B88E1C496F36000A42C7 /* DecimalTests.swift */,
+				CAB204511C7CD7EF00061469 /* OptionalTests.swift */,
 				CA0C9F271BF4AD08006459C7 /* Info.plist */,
 			);
 			path = ELCodableTests;
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */,
+				CAB204531C7CDD1000061469 /* OptionalTests.json */,
 				CA0C9F441BF4ADD3006459C7 /* jsontest_models.json */,
 			);
 			name = "Test Data";
@@ -256,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3952A71C45C44200A24CDF /* NestedErrorTesting.json in Resources */,
+				CAB204541C7CDD1000061469 /* OptionalTests.json in Resources */,
 				CA0C9F451BF4ADD3006459C7 /* jsontest_models.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB204521C7CD7EF00061469 /* OptionalTests.swift in Sources */,
 				CA3952A91C45C44B00A24CDF /* NestedErrorTesting.swift in Sources */,
 				CA0C9F261BF4AD08006459C7 /* ELCodableTests.swift in Sources */,
 				CA0C9F471BF4ADE0006459C7 /* JSONTests.swift in Sources */,
