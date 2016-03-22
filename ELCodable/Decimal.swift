@@ -270,7 +270,7 @@ public func -=(inout lhs: Decimal, rhs: Double) -> Decimal {
 
 // MARK: Multiplication operators
 
-public func *(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func *(lhs: Decimal, rhs: Decimal) -> Decimal {
     return Decimal(lhs.value.decimalNumberByMultiplyingBy(rhs.value))
 }
 
