@@ -219,7 +219,7 @@ public postfix func ++(inout lhs: Decimal) -> Decimal {
 }
 
 public func +=(inout lhs: Decimal, rhs: Decimal) -> Decimal {
-    lhs = Decimal(lhs.value.decimalNumberBySubtracting(rhs.value))
+    lhs = Decimal(lhs.value.decimalNumberByAdding(rhs.value))
     return lhs
 }
 
