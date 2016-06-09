@@ -218,19 +218,16 @@ public postfix func ++(inout lhs: Decimal) -> Decimal {
     return lhs
 }
 
-public func +=(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func +=(inout lhs: Decimal, rhs: Decimal) {
     lhs = Decimal(lhs.value.decimalNumberByAdding(rhs.value))
-    return lhs
 }
 
-public func +=(inout lhs: Decimal, rhs: Int) -> Decimal {
+public func +=(inout lhs: Decimal, rhs: Int) {
     lhs = Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber(integer: rhs)))
-    return lhs
 }
 
-public func +=(inout lhs: Decimal, rhs: Double) -> Decimal {
+public func +=(inout lhs: Decimal, rhs: Double) {
     lhs = Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber(double: rhs)))
-    return lhs
 }
 
 // MARK: Subtraction operators
@@ -252,41 +249,35 @@ public postfix func --(inout lhs: Decimal) -> Decimal {
     return lhs
 }
 
-public func -=(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func -=(inout lhs: Decimal, rhs: Decimal) {
     lhs = Decimal(lhs.value.decimalNumberBySubtracting(rhs.value))
-    return lhs
 }
 
-public func -=(inout lhs: Decimal, rhs: Int) -> Decimal {
+public func -=(inout lhs: Decimal, rhs: Int) {
     lhs = Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber(integer: rhs)))
-    return lhs
 }
 
-public func -=(inout lhs: Decimal, rhs: Double) -> Decimal {
+public func -=(inout lhs: Decimal, rhs: Double) {
     lhs = Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber(double: rhs)))
-    return lhs
 }
 
 
 // MARK: Multiplication operators
 
-public func *(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func *(lhs: Decimal, rhs: Decimal) -> Decimal {
     return Decimal(lhs.value.decimalNumberByMultiplyingBy(rhs.value))
 }
 
-public func *=(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func *=(inout lhs: Decimal, rhs: Decimal) {
     lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(rhs.value))
-    return lhs
 }
 
-public func *=(inout lhs: Decimal, rhs: Int) -> Decimal {
+public func *=(inout lhs: Decimal, rhs: Int) {
     lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: rhs)))
-    return lhs
 }
 
-public func *=(inout lhs: Decimal, rhs: Double) -> Decimal {
+public func *=(inout lhs: Decimal, rhs: Double) {
     lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(NSDecimalNumber(double: rhs)))
-    return lhs
 }
 
 // MARK: Division operators
@@ -295,19 +286,16 @@ public func /(lhs: Decimal, rhs: Decimal) -> Decimal {
     return Decimal(lhs.value.decimalNumberByDividingBy(rhs.value))
 }
 
-public func /=(inout lhs: Decimal, rhs: Decimal) -> Decimal {
+public func /=(inout lhs: Decimal, rhs: Decimal) {
     lhs = Decimal(lhs.value.decimalNumberByDividingBy(rhs.value))
-    return lhs
 }
 
-public func /=(inout lhs: Decimal, rhs: Int) -> Decimal {
+public func /=(inout lhs: Decimal, rhs: Int) {
     lhs = Decimal(lhs.value.decimalNumberByDividingBy(NSDecimalNumber(integer: rhs)))
-    return lhs
 }
 
-public func /=(inout lhs: Decimal, rhs: Double) -> Decimal {
+public func /=(inout lhs: Decimal, rhs: Double) {
     lhs = Decimal(lhs.value.decimalNumberByDividingBy(NSDecimalNumber(double: rhs)))
-    return lhs
 }
 
 // MARK: Power-of operators
