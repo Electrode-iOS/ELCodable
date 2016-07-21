@@ -22,6 +22,11 @@
 		CA0C9F471BF4ADE0006459C7 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */; };
 		CA3952A71C45C44200A24CDF /* NestedErrorTesting.json in Resources */ = {isa = PBXBuildFile; fileRef = CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */; };
 		CA3952A91C45C44B00A24CDF /* NestedErrorTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */; };
+		CAD3E3E31D416DCE00AEDD28 /* DynamicKeyedData.json in Resources */ = {isa = PBXBuildFile; fileRef = CAD3E3E11D416DCE00AEDD28 /* DynamicKeyedData.json */; };
+		CAD3E3E41D416DCE00AEDD28 /* OptionalTests.json in Resources */ = {isa = PBXBuildFile; fileRef = CAD3E3E21D416DCE00AEDD28 /* OptionalTests.json */; };
+		CAD3E3E61D416DD700AEDD28 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3E3E51D416DD700AEDD28 /* OptionalTests.swift */; };
+		CAD3E3E81D416DDF00AEDD28 /* DynamicKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3E3E71D416DDF00AEDD28 /* DynamicKeyTest.swift */; };
+		CAD3E3EA1D416DF000AEDD28 /* KeyPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD3E3E91D416DF000AEDD28 /* KeyPathTests.swift */; };
 		CAE55C011D13A61900411727 /* ELCodable_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CAE55C001D13A61900411727 /* ELCodable_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAE55C081D13A61A00411727 /* ELCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE55BFE1D13A61900411727 /* ELCodable.framework */; };
 		CAE55C0D1D13A61A00411727 /* ELCodable_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE55C0C1D13A61A00411727 /* ELCodable_osxTests.swift */; };
@@ -72,6 +77,11 @@
 		CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
 		CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NestedErrorTesting.json; sourceTree = "<group>"; };
 		CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedErrorTesting.swift; sourceTree = "<group>"; };
+		CAD3E3E11D416DCE00AEDD28 /* DynamicKeyedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DynamicKeyedData.json; sourceTree = "<group>"; };
+		CAD3E3E21D416DCE00AEDD28 /* OptionalTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OptionalTests.json; sourceTree = "<group>"; };
+		CAD3E3E51D416DD700AEDD28 /* OptionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
+		CAD3E3E71D416DDF00AEDD28 /* DynamicKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicKeyTest.swift; sourceTree = "<group>"; };
+		CAD3E3E91D416DF000AEDD28 /* KeyPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPathTests.swift; sourceTree = "<group>"; };
 		CAE55BFE1D13A61900411727 /* ELCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE55C001D13A61900411727 /* ELCodable_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELCodable_osx.h; sourceTree = "<group>"; };
 		CAE55C021D13A61900411727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +168,9 @@
 				CA3952A81C45C44B00A24CDF /* NestedErrorTesting.swift */,
 				CA0C9F461BF4ADE0006459C7 /* JSONTests.swift */,
 				CAF4B88E1C496F36000A42C7 /* DecimalTests.swift */,
+				CAD3E3E51D416DD700AEDD28 /* OptionalTests.swift */,
+				CAD3E3E71D416DDF00AEDD28 /* DynamicKeyTest.swift */,
+				CAD3E3E91D416DF000AEDD28 /* KeyPathTests.swift */,
 				CA0C9F271BF4AD08006459C7 /* Info.plist */,
 			);
 			path = ELCodableTests;
@@ -196,6 +209,8 @@
 			children = (
 				CA3952A61C45C44200A24CDF /* NestedErrorTesting.json */,
 				CA0C9F441BF4ADD3006459C7 /* jsontest_models.json */,
+				CAD3E3E11D416DCE00AEDD28 /* DynamicKeyedData.json */,
+				CAD3E3E21D416DCE00AEDD28 /* OptionalTests.json */,
 			);
 			name = "Test Data";
 			sourceTree = "<group>";
@@ -369,7 +384,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3952A71C45C44200A24CDF /* NestedErrorTesting.json in Resources */,
+				CAD3E3E31D416DCE00AEDD28 /* DynamicKeyedData.json in Resources */,
 				CA0C9F451BF4ADD3006459C7 /* jsontest_models.json in Resources */,
+				CAD3E3E41D416DCE00AEDD28 /* OptionalTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,9 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD3E3E61D416DD700AEDD28 /* OptionalTests.swift in Sources */,
 				CA3952A91C45C44B00A24CDF /* NestedErrorTesting.swift in Sources */,
 				CA0C9F261BF4AD08006459C7 /* ELCodableTests.swift in Sources */,
+				CAD3E3E81D416DDF00AEDD28 /* DynamicKeyTest.swift in Sources */,
 				CA0C9F471BF4ADE0006459C7 /* JSONTests.swift in Sources */,
+				CAD3E3EA1D416DF000AEDD28 /* KeyPathTests.swift in Sources */,
 				CAF4B88F1C496F36000A42C7 /* DecimalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -832,6 +852,7 @@
 				CAE55C121D13A61A00411727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE55C131D13A61A00411727 /* Build configuration list for PBXNativeTarget "ELCodable_osxTests" */ = {
 			isa = XCConfigurationList;
@@ -841,6 +862,7 @@
 				CAE55C161D13A61A00411727 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
