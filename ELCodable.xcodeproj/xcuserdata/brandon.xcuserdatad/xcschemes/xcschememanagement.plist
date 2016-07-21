@@ -9,6 +9,21 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>ELCodable.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>ELCodable_osx.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>ELCodable_osxTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +33,31 @@
 			<true/>
 		</dict>
 		<key>CA0C9F1F1BF4AD08006459C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE55BBA1D13A2FD00411727</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE55BCE1D13A4E000411727</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE55BE91D13A53D00411727</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE55BFD1D13A61900411727</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE55C061D13A61A00411727</key>
 		<dict>
 			<key>primary</key>
 			<true/>

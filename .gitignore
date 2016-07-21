@@ -15,5 +15,7 @@ xcuserdata
 DerivedData
 *.hmap
 *.ipa
+*.xcscmblueprint
+*.xcsettings
 *.xcuserstate
 .DS_Store

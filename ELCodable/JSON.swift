@@ -149,7 +149,7 @@ public struct JSON {
 }
 
 extension JSON {
-    func data() -> NSData? {
+    public func data() -> NSData? {
         if let object = object {
             return try? NSJSONSerialization.dataWithJSONObject(object, options: .PrettyPrinted)
         }
