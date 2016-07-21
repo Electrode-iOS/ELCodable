@@ -83,6 +83,40 @@ public struct JSON {
         }
     }
 
+    /**
+     If the object in question is a dictionary, this will return the value of the key at the specified index.
+     If the object is an array, it will return the value at the specified index.
+     
+     This subscript is currently readonly.
+    */
+    public subscript(index: Int) -> JSON? {
+        get {
+            /**
+             NSDictionary is used because it currently performs better than a native Swift dictionary.
+             The reason for this is that [String : AnyObject] is bridged to NSDictionary deep down the
+             call stack, and this bridging operation is relatively expensive. Until Swift is ABI stable
+             and/or doesn't require a bridge to Objective-C, NSDictionary will be used here
+             */
+            if let dictionary = object as? NSDictionary {
+                if let keys = dictionary.allKeys as? [String] {
+                    let key = keys[index]
+                    let value = dictionary[key]
+                    if let value = value {
+                        return JSON(value)
+                    }
+                }
+            } else if let array = object as? NSArray {
+                let value = array[index]
+                return JSON(value)
+            }
+            
+            return nil
+        }
+    }
+    
+    /**
+     Returns or sets the key to a given value.
+     */
     public subscript(key: String) -> JSON? {
         set {
             if var tempObject = object as? [String : AnyObject] {

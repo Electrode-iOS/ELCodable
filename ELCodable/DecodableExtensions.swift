@@ -110,4 +110,14 @@ extension Array where Element: Decodable {
     }
 }
 
+extension Dictionary where Key: StringLiteralConvertible, Value: Decodable {
+    public static func decode(json: JSON?) throws -> [String: JSON] {
+        guard let value = json?.dictionary else {
+            throw DecodeError.Undecodable
+        }
+
+        return value
+    }
+}
+
 
