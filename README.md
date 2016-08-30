@@ -1,6 +1,6 @@
 # ELCodable 
 
-[![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](https://github.com/Electrode-iOS/ELCodable/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.0-blue.svg)](https://github.com/Electrode-iOS/ELCodable/releases/latest)
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELCodable.svg?branch=master)](https://travis-ci.org/Electrode-iOS/ELCodable)
 
 ELCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
@@ -18,7 +18,9 @@ It provides the following functionality:
 * Type conversion, both in model types as well as common forms of JSON, such as NSData, Dictionaries, Arrays, etc.
 * Data validation.
 
-## Defining & using your model
+## Usage
+
+### Defining & using your model
 
 ```Swift
 struct MyModel {
@@ -64,7 +66,7 @@ do {
 
 Now that we've decoded and done something with our model.  Lets look at how encoding would work.
 
-## Encoding
+### Encoding
 
 ```Swift
 extension MyModel: Encodable {
@@ -86,7 +88,7 @@ if let json = json {
 }
 ```
 
-## Validation
+### Validation
 
 Model decode validation is as easy as adding a call to validateModel(), and writing a validateDecode() function.  Validating Encoding works more or less the same way.
 
@@ -109,7 +111,7 @@ extension MyModel: Decodable {
     }
 }
 ```
-## What about sub-models?
+### What about sub-models?
 
 Take this example model:
 
@@ -122,7 +124,7 @@ struct TestModel {
 
 As long as SubModel implements Decodable and/or Encodable, it'll "just work".  Validation is left up to the implementor, but it's done the same way regardless of sub-models.
 
-## What about fields that aren't necessarily required?
+### What about fields that aren't necessarily required?
 
 Simply mark them as optionals in your model, like this:
 
@@ -135,7 +137,7 @@ struct TestModel {
 }
 ```
 
-## What types can I use in my models?
+### What types can I use in my models?
 
 Model types will typically be Swift types.  Things like String, UInt, structs, Dictionary, etc.  Because of this, it's not suitable for use with Objective-C directly.  It can be done though with a little wrapper. See Decimal.swift, which makes NSDecimalNumber a first class type in Swift.
 
@@ -161,27 +163,15 @@ extension Decimal: Decodable {
 }
 ```
 
-## Tell me more about this Decimal type
+### Tell me more about this Decimal type
 
 The Decimal type allows NSDecimalNumber to work and function exactly as a Double or Float would, while preserving the precision within.  There's not much to it really, however since numbers tend to be compared to various things, it implements the Equatable protocol and has various operator overloads on ==, <=, >= etc.
-
-## Contributions
-
-We appreciate your contributions to all of our projects and look forward to interacting with you via Pull Requests, the issue tracker, via Twitter, etc.  We're happy to help you, and to have you help us.  We'll strive to answer every PR and issue and be very transparent in what we do.
-
-###### Electrode-iOS's Primary Contributors
-
-Dr. Sneed (@bsneed)<br>
-Steve Riggins (@steveriggins)<br>
-Sam Grover (@samgrover)<br>
-Angelo Di Paolo (@angelodipaolo)<br>
-Cody Garvin (@migs647)<br>
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Walmart, WalmartLabs, and other Contributors
+Copyright (c) 2015-2016 Walmart, WalmartLabs, and other Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
