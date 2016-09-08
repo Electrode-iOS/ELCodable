@@ -2,14 +2,9 @@
 
 [![Version](https://img.shields.io/badge/version-v2.0.0-blue.svg)](https://github.com/Electrode-iOS/ELCodable/releases/latest)
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELCodable.svg?branch=master)](https://travis-ci.org/Electrode-iOS/ELCodable)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-ELCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
-
-## Introduction
-
-ELCodable provides an easy mechanism by which to encode/decode JSON data into proper swift models w/ data mutability/immutability.  
-
-It provides the following functionality:
+ELCodable, a data model decoding/encoding framework for Swift. Inspired by [Anviking's Decodable](https://github.com/Anviking/Decodable). ELCodable provides a mechanism for decoding and encoding JSON to and from Swift models.
 
 * Swift optionals to determine required fields from optional fields.
 * An easy to use JSON wrapper.
@@ -17,6 +12,24 @@ It provides the following functionality:
 * Decoding from JSON.
 * Type conversion, both in model types as well as common forms of JSON, such as NSData, Dictionaries, Arrays, etc.
 * Data validation.
+
+## Requirements
+
+ELCodable requires Swift 2.2 and Xcode 7.3.
+
+## Installation
+
+### Carthage
+
+Install with [Carthage](https://github.com/Carthage/Carthage) by adding the framework to your project's [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+
+```
+github "Electrode-iOS/ELCodable" ~> 2.0.0
+```
+
+### Manual
+
+Install manually by adding `ELCodable.xcodeproj` to your project and configuring your target to link `ELCodable.framework`.
 
 ## Usage
 
@@ -166,27 +179,3 @@ extension Decimal: Decodable {
 ### Tell me more about this Decimal type
 
 The Decimal type allows NSDecimalNumber to work and function exactly as a Double or Float would, while preserving the precision within.  There's not much to it really, however since numbers tend to be compared to various things, it implements the Equatable protocol and has various operator overloads on ==, <=, >= etc.
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015-2016 Walmart, WalmartLabs, and other Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
