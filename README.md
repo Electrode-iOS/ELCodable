@@ -1,6 +1,6 @@
 # ELCodable 
 
-[![Version](https://img.shields.io/badge/version-v2.0.0-blue.svg)](https://github.com/Electrode-iOS/ELCodable/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.1.0-blue.svg)](https://github.com/Electrode-iOS/ELCodable/releases/latest)
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELCodable.svg?branch=master)](https://travis-ci.org/Electrode-iOS/ELCodable)
 
 ELCodable, a data model decoding/encoding framework for Swift.  Inspired by Anviking's Decodable (https://github.com/Anviking/Decodable)
