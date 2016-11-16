@@ -347,9 +347,11 @@
 					};
 					CAE55BFD1D13A61900411727 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					CAE55C061D13A61A00411727 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -654,6 +656,7 @@
 				PRODUCT_NAME = ELCodable;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -676,6 +679,7 @@
 				PRODUCT_NAME = ELCodable;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = QADeployment;
 		};
@@ -698,6 +702,7 @@
 				PRODUCT_NAME = ELCodable;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -713,6 +718,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walmart.ELCodable-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -728,6 +734,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walmart.ELCodable-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 2.3;
 			};
 			name = QADeployment;
 		};
@@ -743,6 +750,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walmart.ELCodable-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
