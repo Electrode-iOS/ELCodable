@@ -343,7 +343,6 @@
 					};
 					CA0C9F1F1BF4AD08006459C7 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = DXZ5VF8836;
 						LastSwiftMigration = 0800;
 					};
 					CAE55BFD1D13A61900411727 = {
@@ -619,7 +618,7 @@
 		CA0C9F2E1BF4AD08006459C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = DXZ5VF8836;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ELCodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodableTests;
@@ -631,7 +630,7 @@
 		CA0C9F2F1BF4AD08006459C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = DXZ5VF8836;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ELCodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodableTests;
@@ -832,7 +831,7 @@
 		DB5F6F4A1C77CC940048EA81 /* QADeployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = DXZ5VF8836;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ELCodableTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walmartlabs.ELCodableTests;
