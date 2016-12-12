@@ -1,3 +1,7 @@
+# [3.0.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.0.0)
+
+- Update to support Swift 3
+
 # [2.1.1](https://github.com/Electrode-iOS/ELCodable/releases/tag/v2.1.1)
 
 - Update OS X target to use Swift 2.3
