@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Decimal {
+public struct Decimal: Comparable, Equatable, Hashable {
     public let value: NSDecimalNumber
     
     /// Create an instance initialized to zero.
@@ -34,6 +34,48 @@ public struct Decimal {
     
     public init(_ value: String) {
         self.value = NSDecimalNumber(string: value)
+    }
+    
+    public init(_ v: UInt8) {
+        value = NSDecimalNumber(unsignedChar: v)
+    }
+    public init(_ v: Int8) {
+        value = NSDecimalNumber(char: v)
+    }
+    public init(_ v: UInt16) {
+        value = NSDecimalNumber(unsignedShort: v)
+    }
+    public init(_ v: Int16) {
+        value = NSDecimalNumber(short: v)
+    }
+    public init(_ v: UInt32) {
+        value = NSDecimalNumber(unsignedInt: v)
+    }
+    public init(_ v: Int32) {
+        value = NSDecimalNumber(int: v)
+    }
+    public init(_ v: UInt64) {
+        value = NSDecimalNumber(unsignedLongLong: v)
+    }
+    public init(_ v: Int64) {
+        value = NSDecimalNumber(longLong: v)
+    }
+    public init(_ v: UInt) {
+        value = NSDecimalNumber(unsignedInteger: v)
+    }
+    public init(_ v: Int) {
+        value = NSDecimalNumber(integer: v)
+    }
+    
+    /// The hash value.
+    ///
+    /// **Axiom:** `x == y` implies `x.hashValue == y.hashValue`.
+    ///
+    /// - Note: The hash value is not guaranteed to be stable across
+    ///   different invocations of the same program.  Do not persist the
+    ///   hash value across program runs.
+    public var hashValue: Int {
+        return value.hash
     }
 }
 
@@ -100,9 +142,6 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
 }
 
-extension Decimal: Comparable, Equatable {
-}
-
 // MARK: Equatable
 public func ==(lhs: Decimal, rhs: Decimal) -> Bool {
     return lhs.value.compare(rhs.value) == .OrderedSame
@@ -137,19 +176,6 @@ public func >(lhs: Decimal, rhs: Decimal) -> Bool {
     return lhs.value.compare(rhs.value) == .OrderedDescending
 }
 
-extension Decimal: Hashable {
-    /// The hash value.
-    ///
-    /// **Axiom:** `x == y` implies `x.hashValue == y.hashValue`.
-    ///
-    /// - Note: The hash value is not guaranteed to be stable across
-    ///   different invocations of the same program.  Do not persist the
-    ///   hash value across program runs.
-    public var hashValue: Int {
-        return value.hash
-    }
-}
-
 extension Decimal: IntegerLiteralConvertible {
     public init(integerLiteral value: IntegerLiteralType) {
         self.value = NSDecimalNumber(integer: value)
@@ -170,38 +196,6 @@ extension Decimal: AbsoluteValuable {
     }
 }
 
-extension Decimal {
-    public init(_ v: UInt8) {
-        value = NSDecimalNumber(unsignedChar: v)
-    }
-    public init(_ v: Int8) {
-        value = NSDecimalNumber(char: v)
-    }
-    public init(_ v: UInt16) {
-        value = NSDecimalNumber(unsignedShort: v)
-    }
-    public init(_ v: Int16) {
-        value = NSDecimalNumber(short: v)
-    }
-    public init(_ v: UInt32) {
-        value = NSDecimalNumber(unsignedInt: v)
-    }
-    public init(_ v: Int32) {
-        value = NSDecimalNumber(int: v)
-    }
-    public init(_ v: UInt64) {
-        value = NSDecimalNumber(unsignedLongLong: v)
-    }
-    public init(_ v: Int64) {
-        value = NSDecimalNumber(longLong: v)
-    }
-    public init(_ v: UInt) {
-        value = NSDecimalNumber(unsignedInteger: v)
-    }
-    public init(_ v: Int) {
-        value = NSDecimalNumber(integer: v)
-    }
-}
 
 // MARK: Addition operators
 
