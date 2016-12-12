@@ -25,11 +25,11 @@ public struct Decimal: Comparable, Equatable, Hashable {
     }
     
     public init(_ value: Float) {
-        self.value = NSDecimalNumber(value: value as Float)
+        self.value = NSDecimalNumber(value: value)
     }
     
     public init(_ value: Double) {
-        self.value = NSDecimalNumber(value: value as Double)
+        self.value = NSDecimalNumber(value: value)
     }
     
     public init(_ value: String) {
@@ -37,34 +37,34 @@ public struct Decimal: Comparable, Equatable, Hashable {
     }
     
     public init(_ v: UInt8) {
-        value = NSDecimalNumber(value: v as UInt8)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int8) {
-        value = NSDecimalNumber(value: v as Int8)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt16) {
-        value = NSDecimalNumber(value: v as UInt16)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int16) {
-        value = NSDecimalNumber(value: v as Int16)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt32) {
-        value = NSDecimalNumber(value: v as UInt32)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int32) {
-        value = NSDecimalNumber(value: v as Int32)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt64) {
-        value = NSDecimalNumber(value: v as UInt64)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int64) {
-        value = NSDecimalNumber(value: v as Int64)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt) {
-        value = NSDecimalNumber(value: v as UInt)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int) {
-        value = NSDecimalNumber(value: v as Int)
+        value = NSDecimalNumber(value: v)
     }
     
     /// The hash value.
