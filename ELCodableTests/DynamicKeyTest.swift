@@ -15,12 +15,12 @@ struct MyData {
     let identifier: String
     let location: LocationData
     let name: String
-    let packagePrice: Decimal
-    let unitPrice: Decimal
+    let packagePrice: ELCodable.Decimal
+    let unitPrice: ELCodable.Decimal
 }
 
 extension MyData: Decodable {
-    static func decode(json: JSON?) throws -> MyData {
+    static func decode(_ json: JSON?) throws -> MyData {
         let buriedJson = json?["data"]?[0]
 
         return try MyData(
@@ -42,7 +42,7 @@ struct LocationData {
 }
 
 extension LocationData: Decodable {
-    static func decode(json: JSON?) throws -> LocationData {
+    static func decode(_ json: JSON?) throws -> LocationData {
         return try LocationData(
             aisle: json ==> "aisle",
             section: json ==> "section",
@@ -71,7 +71,7 @@ class DynamicKeyTest: XCTestCase {
             return
         }
         
-        var thrownError: ErrorType? = nil
+        var thrownError: Error? = nil
         
         do {
             let model = try MyData.decode(json)

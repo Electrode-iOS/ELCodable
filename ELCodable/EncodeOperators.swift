@@ -8,14 +8,15 @@
 
 import Foundation
 
-infix operator <== { associativity right precedence 150 }
+infix operator <== : Encode
+precedencegroup Encode { associativity: right }
 
 public func <== <T: Encodable>(lhs: String, rhs: T) throws -> (String, JSON) {
     let value = try? rhs.encode()
     if let value = value {
         return (lhs, value)
     } else {
-        throw EncodeError.Unencodable
+        throw EncodeError.unencodable
     }
 }
 
@@ -24,7 +25,7 @@ public func <== <T: Encodable>(lhs: String, rhs: [T]) throws -> (String, JSON) {
     if let value = value {
         return (lhs, value)
     } else {
-        throw EncodeError.Unencodable
+        throw EncodeError.unencodable
     }
 }
 

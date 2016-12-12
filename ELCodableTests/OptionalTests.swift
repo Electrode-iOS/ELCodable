@@ -14,7 +14,7 @@ struct Data {
 }
 
 extension Data: Decodable {
-    static func decode(json: JSON?) throws -> Data {
+    static func decode(_ json: JSON?) throws -> Data {
         return try Data(
             cart: json ==> "data"
         )
@@ -22,7 +22,7 @@ extension Data: Decodable {
 }
 
 struct Cart {
-    var total: Decimal
+    var total: ELCodable.Decimal
     var clientTransactionId: String?
     var recordSaleTransactionId: String?
     var approvalNumber: String?
@@ -30,7 +30,7 @@ struct Cart {
 }
 
 extension Cart: Decodable {
-    static func decode(json: JSON?) throws -> Cart {
+    static func decode(_ json: JSON?) throws -> Cart {
         return try Cart(
             total: json ==> "total",
             clientTransactionId: json ==> "clientTransactionId",

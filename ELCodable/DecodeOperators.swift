@@ -8,11 +8,14 @@
 
 import Foundation
 
-infix operator ==> { associativity right precedence 150 }
+//infix operator ==> { associativity right precedence 150 }
+
+infix operator ==> : Decode
+precedencegroup Decode { associativity: right }
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
     guard let json = lhs else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.emptyJSON
     }
     
     do {
@@ -20,7 +23,7 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
         if let value = value {
             return value
         } else {
-            throw DecodeError.NotFound(key: rhs)
+            throw DecodeError.notFound(key: rhs)
         }
     } catch let error {
         throw error
@@ -29,11 +32,11 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T {
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T] {
     guard let json = lhs else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.emptyJSON
     }
     
     guard let array = json[rhs]?.array else {
-        throw DecodeError.NotFound(key: rhs)
+        throw DecodeError.notFound(key: rhs)
     }
     
     var results = [T]()
@@ -49,7 +52,7 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T] {
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T? {
     guard let json = lhs else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.emptyJSON
     }
     
     let value = try? T.decode(json[rhs])
@@ -62,7 +65,7 @@ public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> T? {
 
 public func ==> <T: Decodable>(lhs: JSON?, rhs: String) throws -> [T]? {
     guard let json = lhs else {
-        throw DecodeError.EmptyJSON
+        throw DecodeError.emptyJSON
     }
     
     guard let array = json[rhs]?.array else {

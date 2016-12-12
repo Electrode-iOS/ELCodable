@@ -14,7 +14,7 @@ struct SubModel {
 }
 
 extension SubModel: Decodable {
-    static func decode(json: JSON?) throws -> SubModel {
+    static func decode(_ json: JSON?) throws -> SubModel {
         return try SubModel(
             aSubString: json ==> "aSubString"
         )
@@ -33,7 +33,7 @@ struct TestModel {
     let aString: String
     let aFloat: Float
     let anInt: Int
-    let aNumber: Decimal
+    let aNumber: ELCodable.Decimal
     let anArray: [String]
     let aModel: SubModel
     let aModelArray: [SubModel]
@@ -47,7 +47,7 @@ struct TestModel {
 }
 
 extension TestModel: Decodable {
-    static func decode(json: JSON?) throws -> TestModel {
+    static func decode(_ json: JSON?) throws -> TestModel {
         return try TestModel(
             aString: json ==> "aString",
             aFloat: json ==> "aFloat",
@@ -69,7 +69,7 @@ extension TestModel: Decodable {
         if aFloat == 1.234 {
             return self
         } else {
-            throw DecodeError.ValidationFailed
+            throw DecodeError.validationFailed
         }
     }
 }
@@ -111,7 +111,7 @@ class ELCodableTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
@@ -135,10 +135,10 @@ class ELCodableTests: XCTestCase {
         json["optModelArray"] = JSON([["aSubString": "value1"], ["aSubString": "value2"], ["aSubString": "value3"]])
         
         let model = try? TestModel.decode(json)
-        print(model)
+        print(model as Any)
         
         let output = try? model?.encode()
-        print(output)
+        print(output as Any)
     }
     
     func testDecodeThrowEmptyJSON() {
@@ -147,7 +147,7 @@ class ELCodableTests: XCTestCase {
         do {
             let model = try TestModel.decode(nil)
             print(model)
-        } catch DecodeError.EmptyJSON {
+        } catch DecodeError.emptyJSON {
             thrown = true
         } catch {
             thrown = false
@@ -167,7 +167,7 @@ class ELCodableTests: XCTestCase {
             // first key it'll hit is "aString", which should be missing.
             let model = try TestModel.decode(json)
             print(model)
-        } catch DecodeError.NotFound(let key) {
+        } catch DecodeError.notFound(let key) {
             thrown = true
             thrownKey = key
         } catch {
@@ -202,7 +202,7 @@ class ELCodableTests: XCTestCase {
         do {
             let model = try TestModel.decode(json)
             print(model)
-        } catch DecodeError.NotFound(let key) {
+        } catch DecodeError.notFound(let key) {
             thrown = true
             thrownKey = key
         } catch {
@@ -267,7 +267,7 @@ class ELCodableTests: XCTestCase {
         do {
             let model = try TestModel.decode(json)
             print(model)
-        } catch DecodeError.NotFound(let key) {
+        } catch DecodeError.notFound(let key) {
             thrown = true
             thrownKey = key
         } catch {

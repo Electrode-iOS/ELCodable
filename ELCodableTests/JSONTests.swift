@@ -35,18 +35,18 @@ class JSONTests: XCTestCase {
         case Unknown
         */
 
-        XCTAssertTrue(json?["mystring"]?.type == .String)
-        XCTAssertTrue(json?["decimalNumber"]?.type == .Number)
-        XCTAssertTrue(json?["bool"]?.type == .Bool)
-        XCTAssertTrue(json?["double"]?.type == .Number)
-        XCTAssertTrue(json?["int"]?.type == .Number)
-        XCTAssertTrue(json?["myarray1"]?.type == .Array)
-        XCTAssertTrue(json?["mydictionary"]?.type == .Dictionary)
-        XCTAssertTrue(json?["null"]?.type == .Null)
+        XCTAssertTrue(json?["mystring"]?.type == .string)
+        XCTAssertTrue(json?["decimalNumber"]?.type == .number)
+        XCTAssertTrue(json?["bool"]?.type == .bool)
+        XCTAssertTrue(json?["double"]?.type == .number)
+        XCTAssertTrue(json?["int"]?.type == .number)
+        XCTAssertTrue(json?["myarray1"]?.type == .array)
+        XCTAssertTrue(json?["mydictionary"]?.type == .dictionary)
+        XCTAssertTrue(json?["null"]?.type == .null)
     }
     
     func testWritingToJSON() {
-        let dictData = ["key1": "value1", "key2": 1234]
+        let dictData = ["key1": "value1", "key2": 1234] as [String : Any]
         let arrayData = ["1", "2", "3", "4"]
         let stringData = "true"
         let numberData = 123456789
@@ -61,7 +61,7 @@ class JSONTests: XCTestCase {
     }
     
     func testCollectionStuff() {
-        let dictData = ["key1": "value1", "key2": 1234]
+        let dictData = ["key1": "value1", "key2": 1234] as [String : Any]
         let arrayData = ["1", "2", "3", "4"]
         let stringData = "true"
         let numberData = 123456789

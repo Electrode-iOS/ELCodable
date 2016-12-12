@@ -34,7 +34,7 @@ extension Int: Encodable {
 
 extension Int64: Encodable {
     public func encode() throws -> JSON {
-        return JSON(NSNumber(longLong: self))
+        return JSON(NSNumber(value: self as Int64))
     }
 }
 
@@ -46,7 +46,7 @@ extension UInt: Encodable {
 
 extension UInt64: Encodable {
     public func encode() throws -> JSON {
-        return JSON(NSNumber(unsignedLongLong: self))
+        return JSON(NSNumber(value: self as UInt64))
     }
 }
 
@@ -64,7 +64,7 @@ extension Decimal: Encodable {
 
 extension Array where Element: Encodable {
     public func encode() throws -> JSON {
-        var array = [AnyObject]()
+        var array = [Any]()
         for item in self {
             let jsonItem = try item.encode()
             if let object = jsonItem.object {

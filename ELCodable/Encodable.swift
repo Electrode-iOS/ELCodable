@@ -8,10 +8,10 @@
 
 import Foundation
 
-public enum EncodeError: ErrorType {
-    case Unencodable
-    case ValidationUnumplemented
-    case ValidationFailed
+public enum EncodeError: Error {
+    case unencodable
+    case validationUnumplemented
+    case validationFailed
 }
 
 public protocol Encodable {
@@ -23,10 +23,10 @@ public typealias EncodeFormat = Array<(String, JSON)>
 public extension Encodable {
     func validateEncode() throws -> Self {
         // do nothing.  user to override.
-        throw EncodeError.ValidationUnumplemented
+        throw EncodeError.validationUnumplemented
     }
     
-    func encodeToJSON(format: EncodeFormat) throws -> JSON {
+    func encodeToJSON(_ format: EncodeFormat) throws -> JSON {
         var json = JSON()
         for tuple in format {
             json[tuple.0] = tuple.1

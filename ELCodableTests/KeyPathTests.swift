@@ -16,7 +16,7 @@ struct VersionModel {
 }
 
 extension VersionModel: Decodable {
-    static func decode(json: JSON?) throws -> VersionModel {
+    static func decode(_ json: JSON?) throws -> VersionModel {
         return try VersionModel(
             minVersion: json?["appVersion"]?["iOS"] ==> "minVersion",
             url: json?["appVersion"]?["iOS"] ==> "url",
@@ -43,7 +43,7 @@ class KeyPathTests: XCTestCase {
             return
         }
         
-        var thrownError: ErrorType? = nil
+        var thrownError: Error? = nil
         
         do {
             let model = try VersionModel.decode(json)

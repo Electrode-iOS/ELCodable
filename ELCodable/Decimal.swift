@@ -13,7 +13,7 @@ public struct Decimal: Comparable, Equatable, Hashable {
     
     /// Create an instance initialized to zero.
     public init() {
-        value = NSDecimalNumber.zero()
+        value = NSDecimalNumber.zero
     }
     /// Create an instance initialized to `value`.
     public init(_ value: NSDecimalNumber) {
@@ -25,11 +25,11 @@ public struct Decimal: Comparable, Equatable, Hashable {
     }
     
     public init(_ value: Float) {
-        self.value = NSDecimalNumber(float: value)
+        self.value = NSDecimalNumber(value: value)
     }
     
     public init(_ value: Double) {
-        self.value = NSDecimalNumber(double: value)
+        self.value = NSDecimalNumber(value: value)
     }
     
     public init(_ value: String) {
@@ -37,34 +37,34 @@ public struct Decimal: Comparable, Equatable, Hashable {
     }
     
     public init(_ v: UInt8) {
-        value = NSDecimalNumber(unsignedChar: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int8) {
-        value = NSDecimalNumber(char: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt16) {
-        value = NSDecimalNumber(unsignedShort: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int16) {
-        value = NSDecimalNumber(short: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt32) {
-        value = NSDecimalNumber(unsignedInt: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int32) {
-        value = NSDecimalNumber(int: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt64) {
-        value = NSDecimalNumber(unsignedLongLong: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int64) {
-        value = NSDecimalNumber(longLong: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: UInt) {
-        value = NSDecimalNumber(unsignedInteger: v)
+        value = NSDecimalNumber(value: v)
     }
     public init(_ v: Int) {
-        value = NSDecimalNumber(integer: v)
+        value = NSDecimalNumber(value: v)
     }
     
     /// The hash value.
@@ -100,7 +100,7 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
     /// A quiet NaN.
     public static var NaN: Decimal {
-        return Decimal(NSDecimalNumber.notANumber())
+        return Decimal(NSDecimalNumber.notANumber)
     }
     /// A quiet NaN.
     public static var quietNaN: Decimal {
@@ -108,7 +108,7 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
     /// `true` iff `self` is negative.
     public var isSignMinus: Bool {
-        return (value as Double).isSignMinus
+        return ((value as Double).sign == .minus)
     }
     /// `true` iff `self` is normal (not zero, subnormal, infinity, or
     /// NaN).
@@ -138,25 +138,25 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
     /// `true` iff `self` is a signaling NaN.
     public var isSignaling: Bool {
-        return (value as Double).isSignaling
+        return (value as Double).isSignalingNaN
     }
 }
 
 // MARK: Equatable
 public func ==(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .OrderedSame
+    return lhs.value.compare(rhs.value) == .orderedSame
 }
 
 // MARK: Comparable
 public func <(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .OrderedAscending
+    return lhs.value.compare(rhs.value) == .orderedAscending
 }
 
 public func <=(lhs: Decimal, rhs: Decimal) -> Bool {
     let result = lhs.value.compare(rhs.value)
-    if result == .OrderedAscending {
+    if result == .orderedAscending {
         return true
-    } else if result == .OrderedSame {
+    } else if result == .orderedSame {
         return true
     }
     return false
@@ -164,32 +164,32 @@ public func <=(lhs: Decimal, rhs: Decimal) -> Bool {
 
 public func >=(lhs: Decimal, rhs: Decimal) -> Bool {
     let result = lhs.value.compare(rhs.value)
-    if result == .OrderedDescending {
+    if result == .orderedDescending {
         return true
-    } else if result == .OrderedSame {
+    } else if result == .orderedSame {
         return true
     }
     return false
 }
 
 public func >(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .OrderedDescending
+    return lhs.value.compare(rhs.value) == .orderedDescending
 }
 
-extension Decimal: IntegerLiteralConvertible {
+extension Decimal: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: IntegerLiteralType) {
-        self.value = NSDecimalNumber(integer: value)
+        self.value = NSDecimalNumber(value: value as Int)
     }
 }
 
 extension Decimal: AbsoluteValuable {
     /// Returns the absolute value of `x`.
-    @warn_unused_result
-    public static func abs(x: Decimal) -> Decimal {
-        if x.value.compare(NSDecimalNumber.zero()) == .OrderedAscending {
+    
+    public static func abs(_ x: Decimal) -> Decimal {
+        if x.value.compare(NSDecimalNumber.zero) == .orderedAscending {
             // number is neg, multiply by -1
             let negOne = NSDecimalNumber(mantissa: 1, exponent: 0, isNegative: true)
-            return Decimal(x.value.decimalNumberByMultiplyingBy(negOne, withBehavior: nil))
+            return Decimal(x.value.multiplying(by: negOne, withBehavior: nil))
         } else {
             return x
         }
@@ -200,102 +200,102 @@ extension Decimal: AbsoluteValuable {
 // MARK: Addition operators
 
 public func +(lhs: Decimal, rhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberByAdding(rhs.value))
+    return Decimal(lhs.value.adding(rhs.value))
 }
 
 public prefix func ++(lhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber.one()))
+    return Decimal(lhs.value.adding(NSDecimalNumber.one))
 }
 
-public postfix func ++(inout lhs: Decimal) -> Decimal {
-    lhs = Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber.one()))
+public postfix func ++(lhs: inout Decimal) -> Decimal {
+    lhs = Decimal(lhs.value.adding(NSDecimalNumber.one))
     return lhs
 }
 
-public func +=(inout lhs: Decimal, rhs: Decimal) {
-    lhs = Decimal(lhs.value.decimalNumberByAdding(rhs.value))
+public func +=(lhs: inout Decimal, rhs: Decimal) {
+    lhs = Decimal(lhs.value.adding(rhs.value))
 }
 
-public func +=(inout lhs: Decimal, rhs: Int) {
-    lhs = Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber(integer: rhs)))
+public func +=(lhs: inout Decimal, rhs: Int) {
+    lhs = Decimal(lhs.value.adding(NSDecimalNumber(value: rhs as Int)))
 }
 
-public func +=(inout lhs: Decimal, rhs: Double) {
-    lhs = Decimal(lhs.value.decimalNumberByAdding(NSDecimalNumber(double: rhs)))
+public func +=(lhs: inout Decimal, rhs: Double) {
+    lhs = Decimal(lhs.value.adding(NSDecimalNumber(value: rhs as Double)))
 }
 
 // MARK: Subtraction operators
 
 public prefix func -(x: Decimal) -> Decimal {
-    return Decimal(x.value.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: -1)))
+    return Decimal(x.value.multiplying(by: NSDecimalNumber(value: -1 as Int)))
 }
 
 public func -(lhs: Decimal, rhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberBySubtracting(rhs.value))
+    return Decimal(lhs.value.subtracting(rhs.value))
 }
 
 public prefix func --(lhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber.one()))
+    return Decimal(lhs.value.subtracting(NSDecimalNumber.one))
 }
 
-public postfix func --(inout lhs: Decimal) -> Decimal {
-    lhs = Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber.one()))
+public postfix func --(lhs: inout Decimal) -> Decimal {
+    lhs = Decimal(lhs.value.subtracting(NSDecimalNumber.one))
     return lhs
 }
 
-public func -=(inout lhs: Decimal, rhs: Decimal) {
-    lhs = Decimal(lhs.value.decimalNumberBySubtracting(rhs.value))
+public func -=(lhs: inout Decimal, rhs: Decimal) {
+    lhs = Decimal(lhs.value.subtracting(rhs.value))
 }
 
-public func -=(inout lhs: Decimal, rhs: Int) {
-    lhs = Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber(integer: rhs)))
+public func -=(lhs: inout Decimal, rhs: Int) {
+    lhs = Decimal(lhs.value.subtracting(NSDecimalNumber(value: rhs as Int)))
 }
 
-public func -=(inout lhs: Decimal, rhs: Double) {
-    lhs = Decimal(lhs.value.decimalNumberBySubtracting(NSDecimalNumber(double: rhs)))
+public func -=(lhs: inout Decimal, rhs: Double) {
+    lhs = Decimal(lhs.value.subtracting(NSDecimalNumber(value: rhs as Double)))
 }
 
 
 // MARK: Multiplication operators
 
 public func *(lhs: Decimal, rhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberByMultiplyingBy(rhs.value))
+    return Decimal(lhs.value.multiplying(by: rhs.value))
 }
 
-public func *=(inout lhs: Decimal, rhs: Decimal) {
-    lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(rhs.value))
+public func *=(lhs: inout Decimal, rhs: Decimal) {
+    lhs = Decimal(lhs.value.multiplying(by: rhs.value))
 }
 
-public func *=(inout lhs: Decimal, rhs: Int) {
-    lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(NSDecimalNumber(integer: rhs)))
+public func *=(lhs: inout Decimal, rhs: Int) {
+    lhs = Decimal(lhs.value.multiplying(by: NSDecimalNumber(value: rhs as Int)))
 }
 
-public func *=(inout lhs: Decimal, rhs: Double) {
-    lhs = Decimal(lhs.value.decimalNumberByMultiplyingBy(NSDecimalNumber(double: rhs)))
+public func *=(lhs: inout Decimal, rhs: Double) {
+    lhs = Decimal(lhs.value.multiplying(by: NSDecimalNumber(value: rhs as Double)))
 }
 
 // MARK: Division operators
 
 public func /(lhs: Decimal, rhs: Decimal) -> Decimal {
-    return Decimal(lhs.value.decimalNumberByDividingBy(rhs.value))
+    return Decimal(lhs.value.dividing(by: rhs.value))
 }
 
-public func /=(inout lhs: Decimal, rhs: Decimal) {
-    lhs = Decimal(lhs.value.decimalNumberByDividingBy(rhs.value))
+public func /=(lhs: inout Decimal, rhs: Decimal) {
+    lhs = Decimal(lhs.value.dividing(by: rhs.value))
 }
 
-public func /=(inout lhs: Decimal, rhs: Int) {
-    lhs = Decimal(lhs.value.decimalNumberByDividingBy(NSDecimalNumber(integer: rhs)))
+public func /=(lhs: inout Decimal, rhs: Int) {
+    lhs = Decimal(lhs.value.dividing(by: NSDecimalNumber(value: rhs as Int)))
 }
 
-public func /=(inout lhs: Decimal, rhs: Double) {
-    lhs = Decimal(lhs.value.decimalNumberByDividingBy(NSDecimalNumber(double: rhs)))
+public func /=(lhs: inout Decimal, rhs: Double) {
+    lhs = Decimal(lhs.value.dividing(by: NSDecimalNumber(value: rhs as Double)))
 }
 
 // MARK: Power-of operators
 
 public func ^(lhs: Decimal, rhs: Int) -> Decimal {
-    return Decimal(lhs.value.decimalNumberByRaisingToPower(rhs))
+    return Decimal(lhs.value.raising(toPower: rhs))
 }
 
 extension Decimal: Strideable {
@@ -303,14 +303,14 @@ extension Decimal: Strideable {
     /// `other`.
     ///
     /// - Complexity: O(1).
-    public func distanceTo(other: Decimal) -> Decimal {
+    public func distance(to other: Decimal) -> Decimal {
         return self - other
     }
     /// Returns a `Self` `x` such that `self.distanceTo(x)` approximates
     /// `n`.
     ///
     /// - Complexity: O(1).
-    public func advancedBy(amount: Decimal) -> Decimal {
+    public func advanced(by amount: Decimal) -> Decimal {
         return self + amount
     }
     
