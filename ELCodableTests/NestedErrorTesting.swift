@@ -31,7 +31,7 @@ func ==(lhs: WMSNGAddress, rhs: WMSNGAddress) -> Bool {
 }
 
 extension WMSNGAddress: Decodable {
-    static func decode(json: JSON?) throws -> WMSNGAddress {
+    static func decode(_ json: JSON?) throws -> WMSNGAddress {
         return try WMSNGAddress(street1:    json ==> "street1",
             street2:    json ==> "street2",
             city:       json ==> "cityjij",
@@ -65,7 +65,7 @@ func ==(lhs: WMSNGStore, rhs: WMSNGStore) -> Bool {
 }
 
 extension WMSNGStore: Decodable {
-    static func decode(json: JSON?) throws -> WMSNGStore {
+    static func decode(_ json: JSON?) throws -> WMSNGStore {
         let store = try WMSNGStore(storeId: json ==> "storeNumber",
             location: CLLocation(latitude: json ==> "latitude", longitude: json ==> "longitude"),
             phone: json ==> "phone",
@@ -81,7 +81,6 @@ extension WMSNGStore: Decodable {
     }
 }
 
-
 class NestedErrorTesting: XCTestCase {
 
     override func setUp() {
@@ -95,22 +94,19 @@ class NestedErrorTesting: XCTestCase {
     }
 
     func testNestedFailure() {
-    
         let json = JSON(bundleClass: NestedErrorTesting.self, filename: "NestedErrorTesting.json")
-        
-        var thrownError: ErrorType? = nil
         
         do {
             let store = try WMSNGStore.decode(json)
             print(store)
-        } catch DecodeError.EmptyJSON {
+            XCTFail("Expected decode call to throw error")
+        } catch DecodeError.emptyJSON {
             print("JSON was empty.")
-        } catch let error {
-            thrownError = error
+        } catch DecodeError.notFound(let key) {
+            XCTAssertEqual("address", key)
+        } catch _ {
+            XCTFail("Unexpected error. Expected DecodeError.notFound.")
         }
-        
-        XCTAssertTrue(thrownError != nil)
-        XCTAssertTrue(thrownError.debugDescription == "Optional(ELCodable.DecodeError.NotFound(\"address\"))")
     }
 
 }

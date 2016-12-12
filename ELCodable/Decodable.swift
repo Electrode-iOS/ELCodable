@@ -8,23 +8,23 @@
 
 import Foundation
 
-public enum DecodeError: ErrorType {
-    case EmptyJSON
-    case Undecodable
-    case ValidationUnimplemented
-    case ValidationFailed
-    case NotFound(key: String)
+public enum DecodeError: Error {
+    case emptyJSON
+    case undecodable
+    case validationUnimplemented
+    case validationFailed
+    case notFound(key: String)
 }
 
 public protocol Decodable {
-    static func decode(json: JSON?) throws -> Self
+    static func decode(_ json: JSON?) throws -> Self
     func validate() throws -> Self
 }
 
 public extension Decodable {
     func validate() throws -> Self {
         // do nothing.  user to override.
-        throw DecodeError.ValidationUnimplemented
+        throw DecodeError.validationUnimplemented
         //return self
     }
 }

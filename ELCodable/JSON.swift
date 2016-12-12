@@ -8,30 +8,30 @@
 
 import Foundation
 
-public enum JSONError: ErrorType {
-    case InvalidJSON
+public enum JSONError: Error {
+    case invalidJSON
 }
 
 public enum JSONType: Int {
-    case Number
-    case String
-    case Bool
-    case Array
-    case Dictionary
-    case Null
-    case Unknown
+    case number
+    case string
+    case bool
+    case array
+    case dictionary
+    case null
+    case unknown
 }
 
 
 public struct JSON: Equatable {
     
-    public var object: AnyObject?
+    public var object: Any?
     
     public init() {
         self.object = nil
     }
     
-    public init(_ object: AnyObject?) {
+    public init(_ object: Any?) {
         self.object = object
     }
     
@@ -39,10 +39,10 @@ public struct JSON: Equatable {
         self.object = json.object
     }
     
-    public init?(data: NSData?) {
+    public init?(data: Data?) {
         if let data = data {
             do {
-                let object: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                let object: Any = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 self.object = object
             } catch let error as NSError {
                 debugPrint(error)
@@ -54,9 +54,9 @@ public struct JSON: Equatable {
     }
     
     public init?(path: String) {
-        let exists = NSFileManager.defaultManager().fileExistsAtPath(path)
+        let exists = FileManager.default.fileExists(atPath: path)
         if exists {
-            let data = NSData(contentsOfFile: path)
+            let data = try? Data(contentsOf: Foundation.URL(fileURLWithPath: path))
             self.init(data: data)
         } else {
             return nil
@@ -70,12 +70,12 @@ public struct JSON: Equatable {
     - parameter string: A string containing the name of the file to load from resources.
     */
     public init?(bundleClass: AnyClass, filename: String) {
-        let bundle = NSBundle(forClass: bundleClass)
+        let bundle = Bundle(for: bundleClass)
         self.init(bundle: bundle, filename: filename)
     }
 
-    public init?(bundle: NSBundle, filename: String) {
-        let filepath: String? = bundle.pathForResource(filename, ofType: nil)
+    public init?(bundle: Bundle, filename: String) {
+        let filepath: String? = bundle.path(forResource: filename, ofType: nil)
         if let filepath = filepath {
             self.init(path: filepath)
         } else {
@@ -93,7 +93,7 @@ public struct JSON: Equatable {
         get {
             /**
              NSDictionary is used because it currently performs better than a native Swift dictionary.
-             The reason for this is that [String : AnyObject] is bridged to NSDictionary deep down the
+             The reason for this is that [String : Any] is bridged to NSDictionary deep down the
              call stack, and this bridging operation is relatively expensive. Until Swift is ABI stable
              and/or doesn't require a bridge to Objective-C, NSDictionary will be used here
              */
@@ -119,12 +119,12 @@ public struct JSON: Equatable {
      */
     public subscript(key: String) -> JSON? {
         set {
-            if var tempObject = object as? [String : AnyObject] {
+            if var tempObject = object as? [String : Any] {
                 tempObject[key] = newValue?.object
                 self.object = tempObject
             }
             else {
-                var tempObject: [String : AnyObject] = [:]
+                var tempObject: [String : Any] = [:]
                 tempObject[key] = newValue?.object
                 self.object = tempObject
             }
@@ -132,7 +132,7 @@ public struct JSON: Equatable {
         get {
             /**
             NSDictionary is used because it currently performs better than a native Swift dictionary.
-            The reason for this is that [String : AnyObject] is bridged to NSDictionary deep down the
+            The reason for this is that [String : Any] is bridged to NSDictionary deep down the
             call stack, and this bridging operation is relatively expensive. Until Swift is ABI stable
             and/or doesn't require a bridge to Objective-C, NSDictionary will be used here
             */
@@ -147,9 +147,9 @@ public struct JSON: Equatable {
         }
     }
 
-    public func data() -> NSData? {
+    public func data() -> Data? {
         if let object = object {
-            return try? NSJSONSerialization.dataWithJSONObject(object, options: .PrettyPrinted)
+            return try? JSONSerialization.data(withJSONObject: object, options: .prettyPrinted)
         }
         return nil
     }
@@ -159,33 +159,33 @@ public struct JSON: Equatable {
         if let object = object {
             switch object {
             case is NSString:
-                return .String
+                return .string
             case is NSArray:
-                return .Array
+                return .array
             case is NSDictionary:
-                return .Dictionary
+                return .dictionary
             case is NSNumber:
                 let number = object as! NSNumber
-                let type = String.fromCString(number.objCType)!
+                let type = String(cString: number.objCType)
                 // there's no such thing as a 'char' in json, but that's
                 // what the serializer types it as.
                 if type == "c" {
-                    return .Bool
+                    return .bool
                 }
-                return .Number
+                return .number
             case is NSNull:
-                return .Null
+                return .null
             default:
-                return .Unknown
+                return .unknown
             }
         } else {
-            return .Unknown
+            return .unknown
         }
     }
     
     public var objectType: String {
         if let object = object {
-            return "\(object.dynamicType)"
+            return "\(type(of: (object) as AnyObject))"
         } else {
             return "Unknown"
         }
@@ -249,7 +249,7 @@ public struct JSON: Equatable {
                 // We need to jump through some hoops here. NSNumber's decimalValue doesn't guarantee
                 // exactness for float and double types.  See "decimalValue" on NSNumber.
                 let number = object as! NSNumber
-                let type = String.fromCString(number.objCType)!
+                let type = String(cString: number.objCType)
                 
                 // type encodings can be found here:
                 // https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html
@@ -258,22 +258,22 @@ public struct JSON: Equatable {
                     // treat the integer based ones the same and just use
                 // the largest type.  No worries here about rounding.
                 case "c", "i", "s", "l", "q":
-                    value = NSDecimalNumber(longLong: number.longLongValue)
+                    value = NSDecimalNumber(value: number.int64Value as Int64)
                     break
                 // do the same with the unsigned types.
                 case "C", "I", "S", "L", "Q":
-                    value = NSDecimalNumber(unsignedLongLong: number.unsignedLongLongValue)
+                    value = NSDecimalNumber(value: number.uint64Value as UInt64)
                     break
                 // and again with precision types.
                 case "f", "d":
-                    value = NSDecimalNumber(double: number.doubleValue)
+                    value = NSDecimalNumber(value: number.doubleValue as Double)
                     // not sure if we need to handle this, but just in case.
                 // it shouldn't hurt anything.
                 case "*":
                     value = NSDecimalNumber(string: number.stringValue)
                 // probably don't need this one either, but oh well.
                 case "B":
-                    value = NSDecimalNumber(bool: number.boolValue)
+                    value = NSDecimalNumber(value: number.boolValue as Bool)
                     
                 default:
                     break
@@ -339,11 +339,11 @@ public struct JSON: Equatable {
             var value: Int? = nil
             switch object {
             case is NSNumber:
-                value = (object as? NSNumber)?.integerValue
+                value = (object as? NSNumber)?.intValue
             case is String:
                 let stringValue = object as? String
                 if let stringValue = stringValue {
-                    value = NSDecimalNumber(string: stringValue).integerValue
+                    value = NSDecimalNumber(string: stringValue).intValue
                 }
             default:
                 break;
@@ -360,11 +360,11 @@ public struct JSON: Equatable {
             var value: Int64? = nil
             switch object {
             case is NSNumber:
-                value = (object as? NSNumber)?.longLongValue
+                value = (object as? NSNumber)?.int64Value
             case is String:
                 let stringValue = object as? String
                 if let stringValue = stringValue {
-                    value = NSDecimalNumber(string: stringValue).longLongValue
+                    value = NSDecimalNumber(string: stringValue).int64Value
                 }
             default:
                 break;
@@ -382,11 +382,11 @@ public struct JSON: Equatable {
             var value: UInt? = nil
             switch object {
             case is NSNumber:
-                value = (object as? NSNumber)?.unsignedIntegerValue
+                value = (object as? NSNumber)?.uintValue
             case is String:
                 let stringValue = object as? String
                 if let stringValue = stringValue {
-                    value = NSDecimalNumber(string: stringValue).unsignedIntegerValue
+                    value = NSDecimalNumber(string: stringValue).uintValue
                 }
             default:
                 break;
@@ -403,11 +403,11 @@ public struct JSON: Equatable {
             var value: UInt64? = nil
             switch object {
             case is NSNumber:
-                value = (object as? NSNumber)?.unsignedLongLongValue
+                value = (object as? NSNumber)?.uint64Value
             case is String:
                 let stringValue = object as? String
                 if let stringValue = stringValue {
-                    value = NSDecimalNumber(string: stringValue).unsignedLongLongValue
+                    value = NSDecimalNumber(string: stringValue).uint64Value
                 }
             default:
                 break;
@@ -442,16 +442,16 @@ public struct JSON: Equatable {
     }
 
     // MARK: - NSURL
-    public var URL: NSURL? {
+    public var URL: Foundation.URL? {
         if let urlString = string {
-            return NSURL(string: urlString)
+            return Foundation.URL(string: urlString)
         }
         return nil
     }
 
     // MARK: - Array
     public var array: [JSON]? {
-        if let array = object as? [AnyObject] {
+        if let array = object as? [Any] {
             return array.map { JSON($0) }
         }
         return nil
@@ -461,7 +461,7 @@ public struct JSON: Equatable {
     
     // MARK: - Dictionary
     public var dictionary: [String : JSON]? {
-        if let dictionary = object as? [String : AnyObject] {
+        if let dictionary = object as? [String : Any] {
             return Dictionary(dictionary.map { ($0, JSON($1)) })
         }
         return nil
@@ -470,7 +470,7 @@ public struct JSON: Equatable {
 }
 
 extension Dictionary {
-    private init(_ pairs: [Element]) {
+    fileprivate init(_ pairs: [Element]) {
         self.init()
         for (key, value) in pairs {
             self[key] = value
@@ -481,7 +481,7 @@ extension Dictionary {
 // MARK: - Operators
 
 public func ==(lhs: JSON, rhs: JSON) -> Bool {
-    if let lhsObject: AnyObject = lhs.object, rhsObject: AnyObject = rhs.object {
+    if let lhsObject: Any = lhs.object, let rhsObject: Any = rhs.object {
         switch (lhsObject, rhsObject) {
         case (let left as String, let right as String):
             return left == right
@@ -499,9 +499,9 @@ public func ==(lhs: JSON, rhs: JSON) -> Bool {
             return left == right
         case (let left as Bool, let right as Bool):
             return left == right
-        case (let left as [AnyObject], let right as [AnyObject]):
+        case (let left as [Any], let right as [Any]):
             return left.map { JSON($0) } == right.map { JSON ($0) }
-        case (let left as [String : AnyObject], let right as [String : AnyObject]):
+        case (let left as [String : Any], let right as [String : Any]):
             return Dictionary(left.map { ($0, JSON($1)) }) == Dictionary(right.map { ($0, JSON($1)) })
         default: return false
         }
@@ -514,12 +514,12 @@ public func ==(lhs: JSON, rhs: JSON) -> Bool {
 
 extension JSON: CustomStringConvertible {
     public var description: String {
-        if let object: AnyObject = object {
+        if let object: Any = object {
             switch object {
             case is String, is NSNumber, is Float, is Double, is Int, is UInt, is Bool: return "\(object)"
-            case is [AnyObject], is [String : AnyObject]:
-                if let data = try? NSJSONSerialization.dataWithJSONObject(object, options: .PrettyPrinted) {
-                    return NSString(data: data, encoding: NSUTF8StringEncoding) as? String ?? ""
+            case is [Any], is [String : Any]:
+                if let data = try? JSONSerialization.data(withJSONObject: object, options: .prettyPrinted) {
+                    return NSString(data: data, encoding: String.Encoding.utf8.rawValue) as? String ?? ""
                 }
             default: return ""
             }
@@ -539,7 +539,7 @@ extension JSON: CustomDebugStringConvertible {
 
 // MARK: - NilLiteralConvertible
 
-extension JSON: NilLiteralConvertible {
+extension JSON: ExpressibleByNilLiteral {
     public init(nilLiteral: ()) {
         self.init()
     }
@@ -547,7 +547,7 @@ extension JSON: NilLiteralConvertible {
 
 // MARK: - StringLiteralConvertible
 
-extension JSON: StringLiteralConvertible {
+extension JSON: ExpressibleByStringLiteral {
     public init(stringLiteral value: StringLiteralType) {
         self.init(value)
     }
@@ -563,7 +563,7 @@ extension JSON: StringLiteralConvertible {
 
 // MARK: - FloatLiteralConvertible
 
-extension JSON: FloatLiteralConvertible {
+extension JSON: ExpressibleByFloatLiteral {
     public init(floatLiteral value: FloatLiteralType) {
         self.init(value)
     }
@@ -571,7 +571,7 @@ extension JSON: FloatLiteralConvertible {
 
 // MARK: - IntegerLiteralConvertible
 
-extension JSON: IntegerLiteralConvertible {
+extension JSON: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: IntegerLiteralType) {
         self.init(value)
     }
@@ -579,7 +579,7 @@ extension JSON: IntegerLiteralConvertible {
 
 // MARK: - BooleanLiteralConvertible
 
-extension JSON: BooleanLiteralConvertible {
+extension JSON: ExpressibleByBooleanLiteral {
     public init(booleanLiteral value: BooleanLiteralType) {
         self.init(value)
     }
@@ -587,17 +587,17 @@ extension JSON: BooleanLiteralConvertible {
 
 // MARK: - ArrayLiteralConvertible
 
-extension JSON: ArrayLiteralConvertible {
-    public init(arrayLiteral elements: AnyObject...) {
+extension JSON: ExpressibleByArrayLiteral {
+    public init(arrayLiteral elements: Any...) {
         self.init(elements)
     }
 }
 
 // MARK: - DictionaryLiteralConvertible
 
-extension JSON: DictionaryLiteralConvertible {
-    public init(dictionaryLiteral elements: (String, AnyObject)...) {
-        var object: [String : AnyObject] = [:]
+extension JSON: ExpressibleByDictionaryLiteral {
+    public init(dictionaryLiteral elements: (String, Any)...) {
+        var object: [String : Any] = [:]
         
         for (key, value) in elements {
             object[key] = value
