@@ -525,7 +525,7 @@ extension JSON: CustomStringConvertible {
             }
         }
         
-        return "\(object)"
+        return "\(String(describing: object))"
     }
 }
 
