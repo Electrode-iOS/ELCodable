@@ -1,3 +1,7 @@
+# [3.0.1](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.0.1)
+
+- Resolved Xcode 8.3 warnings
+
 # [3.0.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.0.0)
 
 - Update to support Swift 3
