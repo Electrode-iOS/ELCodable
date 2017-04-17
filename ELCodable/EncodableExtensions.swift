@@ -74,3 +74,9 @@ extension Array where Element: Encodable {
         return JSON(array)
     }
 }
+
+extension NSNull: Encodable {
+    public func encode() throws -> JSON {
+        return JSON(self)
+    }
+}

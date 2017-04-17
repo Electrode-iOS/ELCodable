@@ -50,12 +50,14 @@ class JSONTests: XCTestCase {
         let arrayData = ["1", "2", "3", "4"]
         let stringData = "true"
         let numberData = 123456789
+        let nullData = NSNull()
         
         var json = JSON()
         json["stringData"] = JSON(stringData)
         json["numberData"] = JSON(numberData)
         json["arrayData"] = JSON(arrayData)
         json["dictData"] = JSON(dictData)
+        json["nullData"] = JSON(nullData)
         
         print(json)
     }
