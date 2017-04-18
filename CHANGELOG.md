@@ -1,3 +1,7 @@
+# [3.1.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.1.0)
+
+-  Added support for encoding `NSNull` as JSON null.
+
 # [3.0.1](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.0.1)
 
 - Resolved Xcode 8.3 warnings
