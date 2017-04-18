@@ -83,7 +83,8 @@ extension TestModel: Encodable {
             "aNumber1" <== aNumber,
             "anArray1" <== anArray,
             "aModel1" <== aModel,
-            "aModelArray1" <== aModelArray
+            "aModelArray1" <== aModelArray,
+            "alwaysNull" <== NSNull()
             ])
     }
     
