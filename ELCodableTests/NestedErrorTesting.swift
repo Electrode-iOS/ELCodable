@@ -30,7 +30,7 @@ func ==(lhs: WMSNGAddress, rhs: WMSNGAddress) -> Bool {
         lhs.country == rhs.country
 }
 
-extension WMSNGAddress: Decodable {
+extension WMSNGAddress: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> WMSNGAddress {
         return try WMSNGAddress(street1:    json ==> "street1",
             street2:    json ==> "street2",
@@ -64,7 +64,7 @@ func ==(lhs: WMSNGStore, rhs: WMSNGStore) -> Bool {
         lhs.address == rhs.address
 }
 
-extension WMSNGStore: Decodable {
+extension WMSNGStore: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> WMSNGStore {
         let store = try WMSNGStore(storeId: json ==> "storeNumber",
             location: CLLocation(latitude: json ==> "latitude", longitude: json ==> "longitude"),
