@@ -13,7 +13,7 @@ struct SubModel {
     let aSubString: String
 }
 
-extension SubModel: Decodable {
+extension SubModel: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> SubModel {
         return try SubModel(
             aSubString: json ==> "aSubString"
@@ -21,7 +21,7 @@ extension SubModel: Decodable {
     }
 }
 
-extension SubModel: Encodable {
+extension SubModel: ELCodable.Encodable {
     func encode() throws -> JSON {
         return try encodeToJSON([
             "aSubString1" <== aSubString
@@ -46,7 +46,7 @@ struct TestModel {
     let optModelArrayNil: [SubModel]?
 }
 
-extension TestModel: Decodable {
+extension TestModel: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> TestModel {
         return try TestModel(
             aString: json ==> "aString",
@@ -74,7 +74,7 @@ extension TestModel: Decodable {
     }
 }
 
-extension TestModel: Encodable {
+extension TestModel: ELCodable.Encodable {
     func encode() throws -> JSON {
         return try validateEncode().encodeToJSON([
             "aString1" <== aString,

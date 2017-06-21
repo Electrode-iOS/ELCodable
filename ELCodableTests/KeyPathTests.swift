@@ -15,7 +15,7 @@ struct VersionModel {
     let version: String
 }
 
-extension VersionModel: Decodable {
+extension VersionModel: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> VersionModel {
         return try VersionModel(
             minVersion: json?["appVersion"]?["iOS"] ==> "minVersion",

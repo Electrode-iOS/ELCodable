@@ -19,7 +19,7 @@ struct MyData {
     let unitPrice: ELCodable.Decimal
 }
 
-extension MyData: Decodable {
+extension MyData: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> MyData {
         let buriedJson = json?["data"]?[0]
 
@@ -41,7 +41,7 @@ struct LocationData {
     let zone: String
 }
 
-extension LocationData: Decodable {
+extension LocationData: ELCodable.Decodable {
     static func decode(_ json: JSON?) throws -> LocationData {
         return try LocationData(
             aisle: json ==> "aisle",

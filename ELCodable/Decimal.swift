@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Decimal: Comparable, Equatable, Hashable {
+public struct Decimal: Hashable {
     public let value: NSDecimalNumber
     
     /// Create an instance initialized to zero.
@@ -142,38 +142,40 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
 }
 
-// MARK: Equatable
-public func ==(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .orderedSame
-}
-
-// MARK: Comparable
-public func <(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .orderedAscending
-}
-
-public func <=(lhs: Decimal, rhs: Decimal) -> Bool {
-    let result = lhs.value.compare(rhs.value)
-    if result == .orderedAscending {
-        return true
-    } else if result == .orderedSame {
-        return true
+extension Decimal: Equatable {
+    public static func ==(lhs: Decimal, rhs: Decimal) -> Bool {
+        return lhs.value.compare(rhs.value) == .orderedSame
     }
-    return false
 }
 
-public func >=(lhs: Decimal, rhs: Decimal) -> Bool {
-    let result = lhs.value.compare(rhs.value)
-    if result == .orderedDescending {
-        return true
-    } else if result == .orderedSame {
-        return true
+extension Decimal: Comparable {
+    public static func <(lhs: Decimal, rhs: Decimal) -> Bool {
+        return lhs.value.compare(rhs.value) == .orderedAscending
     }
-    return false
-}
 
-public func >(lhs: Decimal, rhs: Decimal) -> Bool {
-    return lhs.value.compare(rhs.value) == .orderedDescending
+    public static func <=(lhs: Decimal, rhs: Decimal) -> Bool {
+        let result = lhs.value.compare(rhs.value)
+        if result == .orderedAscending {
+            return true
+        } else if result == .orderedSame {
+            return true
+        }
+        return false
+    }
+
+    public static func >=(lhs: Decimal, rhs: Decimal) -> Bool {
+        let result = lhs.value.compare(rhs.value)
+        if result == .orderedDescending {
+            return true
+        } else if result == .orderedSame {
+            return true
+        }
+        return false
+    }
+
+    public static func >(lhs: Decimal, rhs: Decimal) -> Bool {
+        return lhs.value.compare(rhs.value) == .orderedDescending
+    }
 }
 
 extension Decimal: ExpressibleByIntegerLiteral {
@@ -181,21 +183,6 @@ extension Decimal: ExpressibleByIntegerLiteral {
         self.value = NSDecimalNumber(value: value as Int)
     }
 }
-
-extension Decimal: AbsoluteValuable {
-    /// Returns the absolute value of `x`.
-    
-    public static func abs(_ x: Decimal) -> Decimal {
-        if x.value.compare(NSDecimalNumber.zero) == .orderedAscending {
-            // number is neg, multiply by -1
-            let negOne = NSDecimalNumber(mantissa: 1, exponent: 0, isNegative: true)
-            return Decimal(x.value.multiplying(by: negOne, withBehavior: nil))
-        } else {
-            return x
-        }
-    }
-}
-
 
 // MARK: Addition operators
 
@@ -297,23 +284,4 @@ public func /=(lhs: inout Decimal, rhs: Double) {
 public func ^(lhs: Decimal, rhs: Int) -> Decimal {
     return Decimal(lhs.value.raising(toPower: rhs))
 }
-
-extension Decimal: Strideable {
-    /// Returns a stride `x` such that `self.advancedBy(x)` approximates
-    /// `other`.
-    ///
-    /// - Complexity: O(1).
-    public func distance(to other: Decimal) -> Decimal {
-        return self - other
-    }
-    /// Returns a `Self` `x` such that `self.distanceTo(x)` approximates
-    /// `n`.
-    ///
-    /// - Complexity: O(1).
-    public func advanced(by amount: Decimal) -> Decimal {
-        return self + amount
-    }
-    
-}
-
 
