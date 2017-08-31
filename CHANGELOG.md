@@ -1,3 +1,9 @@
+# [3.2.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.2.0)
+
+- Use default settings for bitcode
+- Added support for building with Xcode 9, backward compatible with Xcode 8
+
+
 # [3.1.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.1.0)
 
 -  Added support for encoding `NSNull` as JSON null.
