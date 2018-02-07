@@ -108,37 +108,45 @@ extension Decimal /*: FloatingPointType*/ { // It complains about _BitsType miss
     }
     /// `true` iff `self` is negative.
     public var isSignMinus: Bool {
-        return ((value as Double).sign == .minus)
+        guard let doubleValue = doubleValue else {
+            return false
+        }
+        
+        return (doubleValue.sign == .minus)
     }
     /// `true` iff `self` is normal (not zero, subnormal, infinity, or
     /// NaN).
     public var isNormal: Bool {
-        return (value as Double).isNormal
+        return doubleValue?.isNormal ?? false
     }
     /// `true` iff `self` is zero, subnormal, or normal (not infinity
     /// or NaN).
     public var isFinite: Bool {
-        return (value as Double).isFinite
+        return doubleValue?.isFinite ?? false
     }
     /// `true` iff `self` is +0.0 or -0.0.
     public var isZero: Bool {
-        return (value as Double).isZero
+        return doubleValue?.isZero ?? false
     }
     /// `true` iff `self` is subnormal.
     public var isSubnormal: Bool {
-        return (value as Double).isSubnormal
+        return doubleValue?.isSubnormal ?? false
     }
     /// `true` iff `self` is infinity.
     public var isInfinite: Bool {
-        return (value as Double).isInfinite
+        return doubleValue?.isInfinite ?? false
     }
     /// `true` iff `self` is NaN.
     public var isNaN: Bool {
-        return (value as Double).isNaN
+        return doubleValue?.isNaN ?? false
     }
     /// `true` iff `self` is a signaling NaN.
     public var isSignaling: Bool {
-        return (value as Double).isSignalingNaN
+        return doubleValue?.isSignalingNaN ?? false
+    }
+    
+    private var doubleValue: Double? {
+        return value as? Double
     }
 }
 
