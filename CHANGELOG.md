@@ -1,3 +1,7 @@
+# [4.0.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v4.0.0)
+
+- Migrate to Swift 4
+
 # [3.2.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v3.2.0)
 
 - Use default settings for bitcode
