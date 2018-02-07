@@ -185,7 +185,7 @@ public struct JSON: Equatable {
     
     public var objectType: String {
         if let object = object {
-            return "\(type(of: (object) as AnyObject))"
+            return "\(Swift.type(of: (object) as AnyObject))"
         } else {
             return "Unknown"
         }
