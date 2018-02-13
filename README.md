@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELCodable.svg?branch=master)](https://travis-ci.org/Electrode-iOS/ELCodable)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+**Note:** This framework has been deprecated. It is no longer being actively maintained and will not be updated for future versions of Swift or iOS.
+
 ELCodable, a data model decoding/encoding framework for Swift. Inspired by [Anviking's Decodable](https://github.com/Anviking/Decodable). ELCodable provides a mechanism for decoding and encoding JSON to and from Swift models.
 
 * Swift optionals to determine required fields from optional fields.
