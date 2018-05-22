@@ -1,4 +1,4 @@
 language: objective-c
-osx_image: xcode9.1
+osx_image: xcode9.3
 script:
    - xcodebuild -project ELCodable.xcodeproj -scheme ELCodable -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' CODE_SIGNING_REQUIRED=NO
