@@ -1,3 +1,7 @@
+# [4.0.1](https://github.com/Electrode-iOS/ELCodable/releases/tag/v4.0.1)
+
+- Xcode 9.3 updates
+
 # [4.0.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v4.0.0)
 
 - Migrate to Swift 4
