@@ -30,7 +30,13 @@ github "Electrode-iOS/ELCodable"
 
 ### Manual
 
-Install manually by adding `ELCodable.xcodeproj` to your project and configuring your target to link `ELCodable.framework`.
+Install manually by adding `ELCodable.xcodeproj` to your project and configuring your target to link `ELCodable.framework` from `ELCodable` target.
+
+There are two target that builds `ELCodable.framework`.
+1. `ELCodable`: Creates dynamicly linked `ELCodable.framework.`
+2. `ELCodable_static`: Creates staticly linked `ELCodable.framework`.
+
+Both targets build the same product (`ELCodable.framework`), thus linking the same app against both `ELCodable` and `ELCodable_static` should be avoided.
 
 ## Usage
 
