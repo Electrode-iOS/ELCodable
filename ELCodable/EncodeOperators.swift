@@ -34,7 +34,7 @@ public func <== <T: Encodable>(lhs: String, rhs: T?) throws -> (String, JSON) {
         return (lhs, JSON())
     }
     
-    let value = try? rhs?.encode()
+    let value = ((try? rhs?.encode()) as JSON??)
     if let value = value {
         return (lhs, value!)
     } else {
@@ -47,7 +47,7 @@ public func <== <T: Encodable>(lhs: String, rhs: [T]?) throws -> (String, JSON) 
         return (lhs, JSON())
     }
     
-    let value = try? rhs?.encode()
+    let value = ((try? rhs?.encode()) as JSON??)
     if let value = value {
         return (lhs, value!)
     } else {
