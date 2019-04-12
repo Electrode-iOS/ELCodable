@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Decimal: Hashable {
+public struct Decimal {
     public let value: NSDecimalNumber
     
     /// Create an instance initialized to zero.
@@ -66,16 +66,11 @@ public struct Decimal: Hashable {
     public init(_ v: Int) {
         value = NSDecimalNumber(value: v)
     }
-    
-    /// The hash value.
-    ///
-    /// **Axiom:** `x == y` implies `x.hashValue == y.hashValue`.
-    ///
-    /// - Note: The hash value is not guaranteed to be stable across
-    ///   different invocations of the same program.  Do not persist the
-    ///   hash value across program runs.
-    public var hashValue: Int {
-        return value.hash
+}
+
+extension Decimal: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(value.hash)
     }
 }
 

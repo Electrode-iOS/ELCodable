@@ -16,7 +16,7 @@ ELCodable, a data model decoding/encoding framework for Swift. Inspired by [Anvi
 
 ## Requirements
 
-ELCodable requires Swift 4 and Xcode 9.2
+ELCodable requires Swift 5 and Xcode 10.2
 
 ## Installation
 

@@ -138,7 +138,7 @@ class ELCodableTests: XCTestCase {
         let model = try? TestModel.decode(json)
         print(model as Any)
         
-        let output = try? model?.encode()
+        let output = ((try? model?.encode()) as JSON??)
         print(output as Any)
     }
     
