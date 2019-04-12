@@ -1,3 +1,7 @@
+# [5.0.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v5.0.0)
+
+- Update to Xcode 10.2 and Swift 5
+
 # [4.1.0](https://github.com/Electrode-iOS/ELCodable/releases/tag/v4.1.0)
 
 - Add a target that builds a static framework for iOS platform.
